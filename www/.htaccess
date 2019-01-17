@@ -1,0 +1,6 @@
+#Кодировка для отображения русских символов
+AddDefaultCharset UTF-8
+#Отображение ошибок
+php_flag display_errors on
+#Уровень ошибок (все, критические, по уровням)
+php_value error_reporting -1
