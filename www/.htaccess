@@ -4,3 +4,15 @@ AddDefaultCharset UTF-8
 php_flag display_errors on
 #Уровень ошибок (все, критические, по уровням)
 php_value error_reporting -1
+
+#Включаем движок для перенаправления ссылок
+RewriteEngine on
+
+#Включаем для всего кроме фавиконки. Происходит через запрос имени файла.
+RewriteCond %{REQUEST_FILENAME} !^favicon\.ico
+
+#Если запрошенный URL-адрес не является директорией, файлом, не является символической ссылкой, то подменить виртуальный адрес файлом index.php.
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule ^(.*) index.php?url=$1 [QSA,L]
