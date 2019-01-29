@@ -9,11 +9,11 @@
 			</div>
 			<div class="col-md-3">
 				<div class="footer-nav">
-					<div class="footer-nav__item"><a href="main.html">Главная</a></div>
-					<div class="footer-nav__item"><a href="about-me.html">Обо мне</a></div>
-					<div class="footer-nav__item"><a href="works.html">Работы</a></div>
-					<div class="footer-nav__item"><a href="blog.html">Блог</a></div>
-					<div class="footer-nav__item"><a href="contacts.html">Контакты</a></div>
+					<div class="footer-nav__item"><a href="<?=HOST?>">Главная</a></div>
+					<div class="footer-nav__item"><a href="<?=HOST?>about">Обо мне</a></div>
+					<div class="footer-nav__item"><a href="<?=HOST?>portfoli">Работы</a></div>
+					<div class="footer-nav__item"><a href="<?=HOST?>blog">Блог</a></div>
+					<div class="footer-nav__item"><a href="<?=HOST?>contacts">Контакты</a></div>
 				</div>
 			</div>
 			<div class="col-md-4">

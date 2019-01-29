@@ -53,3 +53,11 @@
 	text-align: center;
 	color: #FFF;
 }
+ 
+.navigation__item--active a {
+	text-decoration: none;
+}
+
+.footer {
+	flex: 1;
+}
