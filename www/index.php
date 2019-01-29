@@ -1,7 +1,14 @@
 <?php
 
+//Массивы с ошибками и с успешными действиями
+$errors = array();
+$success = array();
+
 require 'config.php';
 require 'db.php';
+require ROOT . 'libs/functions.php';
+
+session_start();
 
 /*------------------------------
 
@@ -10,7 +17,6 @@ require 'db.php';
 -------------------------------*/
 
 //$_SERVER['REQUEST_URI'] - передает запрашиваемый адрес пользователя
-
 //Получаем раздел
 $uri = $_SERVER['REQUEST_URI']; // /portfolio/
 
@@ -30,6 +36,36 @@ switch ($uri[0]) {
 	case '':
 		include ROOT . 'modules/main/index.php';
 		break;
+
+	// ::::::::::: USERS :::::::::::::::::::::::
+	case 'login':
+		require ROOT . 'modules/login/login.php';
+		break;
+
+	case 'registration':
+		include ROOT . 'modules/login/registration.php';
+		break;
+
+	case 'logout':
+		include ROOT . 'modules/login/logout.php';
+		break;
+
+	case 'lost-password':
+		include ROOT . 'modules/login/lost-password.php';
+		break;
+
+	case 'set-new-password':
+		include ROOT . 'modules/login/set-new-password.php';
+		break;
+
+	case 'profile':
+		include ROOT . 'modules/profile/index.php';
+		break;
+
+	case 'profile-edit':
+		include ROOT . 'modules/profile/edit.php';
+		break;
+
 	case 'about':
 		include ROOT . 'modules/about/index.php';
 		break;

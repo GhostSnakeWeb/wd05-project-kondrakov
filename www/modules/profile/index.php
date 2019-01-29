@@ -1,9 +1,15 @@
 <?php 
 
+$title = "Профиль пользователя";
+
+//Данные текущего пользователя
+$currentUser = $_SESSION['logged_user'];
+
 //Готовим контент для центральной части
 //ob_start() - буферизированный вывод.
 ob_start();
 include ROOT . "templates/_parts/_header.tpl";
+include ROOT . "templates/profile/profile.tpl";
 //ob_get_contents() - получает контент записанный между функциями ob_start и ob_get_contans из буфера.
 $content = ob_get_contents();
 ob_end_clean();
