@@ -59,5 +59,29 @@
 }
 
 .footer {
-	flex: 1;
+	min-height: 305px;
+}
+
+body {
+	height: 100%;
+}
+
+.section-ui {
+  padding: 15px 0px;
+}
+.section-ui pre {
+  margin-top: 0;
+}
+
+.btn-and-title {
+	display: flex;
+	justify-content: space-between;
+}
+
+.string-clip {
+	width: calc(100% - 176.033px);
+}
+
+.profile__button {
+	z-index: 99;
 }

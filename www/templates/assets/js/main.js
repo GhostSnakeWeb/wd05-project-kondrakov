@@ -1,5 +1,10 @@
 $(document).ready(function() {
 
+	//Check button edit
+	if ($('div').is('.blog__button--edit')) {
+		$('.blog-post__title').addClass('string-clip');
+	}
+
 	//Map block
 	function initMap() {
 
@@ -289,7 +294,7 @@ $(document).ready(function() {
 
 	}());
 
-checkLogin.init();
+	checkLogin.init();
 	
 });
 

@@ -84,6 +84,10 @@ switch ($uri[0]) {
 		include ROOT . 'modules/blog/post-new.php';
 		break;
 
+	case 'blog/post':
+		include ROOT . 'modules/blog/post.php';
+		break;
+
 	default:
 		echo "404 and Main page";
 		break;

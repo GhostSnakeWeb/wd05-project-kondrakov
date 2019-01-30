@@ -22,7 +22,6 @@ body {
   font-weight: 400;
   padding: 0;
   margin: 0;
-  min-height: 100%;
   position: relative;
   color: #000;
   line-height: 1;
@@ -661,6 +660,7 @@ a.title-medium,
   background-image: -o-linear-gradient(bottom, rgba(23, 46, 103, 0.35) 0%, rgba(255, 255, 255, 0) 100%);
   background-image: linear-gradient(to top, rgba(23, 46, 103, 0.35) 0%, rgba(255, 255, 255, 0) 100%);
 }
+
 .card-post__title,
 .card-portfolio__title {
   color: #222222;
@@ -1470,7 +1470,6 @@ a.message-author--email {
   color: #383737;
 }
 .footer {
-  height: 305px;
   width: 100%;
   background-color: #252525;
   padding-top: 60px;

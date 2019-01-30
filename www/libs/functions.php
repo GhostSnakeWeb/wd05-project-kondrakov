@@ -103,10 +103,28 @@ function commentNumber ($num) {
 	echo  $num.' комментари'.$term;
 }
 
-
 // Перекодирует из стандартной кодировки в base64
 function adopt($text) {
 	return '=?UTF-8?B?'.base64_encode($text).'?=';
+}
+
+#в UTF-8 одна буква соответствует 2 символам
+
+#Функция обрезки строки. Принимает в себя: строку для обрезки, какой длины должна быть обрезанная строка, окончание строки, кодировка.
+function mbCutString($string, $length, $postfix = "...", $encoding = 'UTF-8'){
+
+	#Проверяем, если строка меньше указанной длины, то возвращаем эту строку необрязаной
+	if (mb_strlen($string, $encoding) <= $length) {
+		return $string;
+	}
+
+	#Обрезка строки с 0 по указаный символ. mb_substr - метод обрезки для разных кодировок (4 параметр - вид кодировки)
+	$temp = mb_substr($string, 0, $length, $encoding);
+
+	//Грубо говоря мы ищем иголку (needle) в стоге сена (haystack), в данном случае последний пробел. offset - позиция, с которой начинаем поиск в строке - 3 параметр, 4 параметр - кодировка.
+	$spacePosition = mb_strripos($temp, " ", 0, $encoding);
+	$result = mb_substr($temp, 0, $spacePosition, $encoding) . "...";
+	return $result;
 }
 
 ?>
