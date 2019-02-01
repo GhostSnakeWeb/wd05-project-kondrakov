@@ -1,5 +1,5 @@
 <div class="sticky-footer-content">
-	<div class="container user-content pt-50 pb-120 relative">
+	<div class="container user-content pt-50 relative">
 		<div class="profile__button"><a class="button button-edit" href="<?=HOST?>profile-edit">Редактировать</a></div>
 		<div class="row">
 			<div class="col-md-10 offset-md-1">

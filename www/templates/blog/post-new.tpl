@@ -1,5 +1,5 @@
 <div class="sticky-footer-content">
-	<div class="container user-content pt-80 pb-120">
+	<div class="container user-content pt-80">
 		<div class="row">
 			<div class="col-10 offset-1">
 				<div class="title-1 post-add__title">Добавить пост</div>
