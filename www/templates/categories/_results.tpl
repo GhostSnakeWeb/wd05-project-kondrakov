@@ -13,3 +13,11 @@ if ($_GET['result'] == 'catCreated') { ?>
 <?php if ($_GET['result'] == 'catDeleted') { ?>
 	<div class="notification__error mb-20 mt-20" datd-notify-hide>Категория успешно удалена</div> 
 <?php } ?>
+
+<?php if ($_GET['result'] == 'roleCreated') { ?>
+	<div class="notification__success mb-20 mt-20" datd-notify-hide>Роль успешно добавлена</div>
+<?php } ?>
+
+<?php if ($_GET['result'] == 'roleUpdated') { ?>
+	<div class="notification__success mb-20 mt-20" datd-notify-hide>Роль пользователя успешно изменена</div> 
+<?php } ?>

@@ -74,6 +74,20 @@ switch ($uri[0]) {
 		include ROOT . 'modules/contacts/index.php';
 		break;
 
+	// ::::::::::: ROLES ::::::::::::::::::::::
+
+	case 'roles':
+		include ROOT . 'modules/roles/all.php';
+		break;
+
+	case 'roles/new-role':
+		include ROOT . 'modules/roles/new.php';
+		break;
+
+	case 'roles/edit-role':
+		include ROOT . 'modules/roles/edit.php';
+		break;
+
 	// ::::::::::: CATEGORIES :::::::::::::::::
 
 	case 'blog/categories':
