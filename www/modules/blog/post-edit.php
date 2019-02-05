@@ -1,11 +1,11 @@
 <?php 
 
-$title = "Блог - Добавить новый пост";
+$title = "Редактировать пост";
 
-//Находим все категории по алфавитному порядку
+$post = R::load('posts', $_GET['id']);
 $cats = R::find('categories', 'ORDER BY cat_title ASC');
 
-if (isset($_POST['postNew'])) {
+if (isset($_POST['postUpdate'])) {
 	
 	if (trim($_POST['postTitle']) == '') {
 		$errors[] = ['title' => 'Введите название поста'];
@@ -16,14 +16,12 @@ if (isset($_POST['postNew'])) {
 	}
 
 	if (empty($errors)) {
-		//В таблице posts создаем новую запись
-		$post = R::dispense('posts');
 		$post->title = htmlentities($_POST['postTitle']);
 		$post->cat = htmlentities($_POST['postCat']);
 		$post->text = $_POST['postText'];
 		$post->authorId = $_SESSION['logged_user']['id'];
 		//isoDateTime() - возвращает дату и время и записывает в БД
-		$post->dateTime = R::isoDateTime();
+		$post->updateTime = R::isoDateTime();
 
 		//ЗАГРУЖАЕМ КАРТИНКИ
 
@@ -69,6 +67,24 @@ if (isset($_POST['postNew'])) {
 			//Перемещаем файл
 			$moveResult = move_uploaded_file($fileTempLoc, $uploadfile);
 
+			//Если картинка поста загружена была ранее, т.е. установлена уже, то будем её удалять, чтобы далее заменить.
+			$postImg = $post->post_img;
+
+			if ($postImg != '') {
+				//Записываем текущее нахождение картинки и её имя
+				$picurl = $postImgFolderLocation . $postImg; 
+				//Удаляем картинку, если существует такой файл
+				if (file_exists($picurl)) {
+					unlink($picurl);
+				}
+				$picurl320 = $postImgFolderLocation . "320-" . $postImg;
+				//Удаляем маленькую картинку, если существует такой файл
+				if (file_exists($picurl320)) {
+					unlink($picurl320);
+				}
+			}
+
+
 			if ($moveResult != true) {
 				$errors[] = ['title' => 'Ошибка сохранения файла'];
 			}
@@ -112,7 +128,7 @@ if (isset($_POST['postNew'])) {
 //ob_start() - буферизированный вывод.
 ob_start();
 include ROOT . "templates/_parts/_header.tpl";
-include ROOT . "templates/blog/post-new.tpl";
+include ROOT . "templates/blog/post-edit.tpl";
 //ob_get_contents() - получает контент записанный между функциями ob_start и ob_get_contans из буфера.
 $content = ob_get_contents();
 ob_end_clean();

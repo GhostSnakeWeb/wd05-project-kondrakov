@@ -5,7 +5,18 @@
 				<div class="title-1 post-add__title">Добавить пост</div>
 				<?php require ROOT . 'templates/_parts/_errors.tpl';?>
 				<form class="post-add-form" action="<?=HOST?>blog/post-new" method="POST" enctype="multipart/form-data">
-					<div class="post-add-form__name"><label class="label">Название<input class="input-text" type="text" placeholder="Введите название" name="postTitle" /></label></div>
+					<div class="post-add-form__name">
+						<label class="label">Название<input class="input-text" type="text" placeholder="Введите название" name="postTitle" />
+						</label>
+					</div>
+					<div class="mt-30">
+						<label class="label">Категория</label>
+						<select name="postCat" class="mt-10">
+							<?php foreach ($cats as $cat): ?>
+								<option value="<?=$cat['id']?>"><?=$cat['cat_title']?></option>
+							<?php endforeach ?>
+						</select>
+					</div>
 					<div class="post-add-form__file">
 						<div class="load-file-title">Изображение </div>
 						<div class="load-file-opis">Изображение jpg или png, рекомендуемая ширина 945px и больше, высота от 400px и более, вес до 2Мб.</div>
