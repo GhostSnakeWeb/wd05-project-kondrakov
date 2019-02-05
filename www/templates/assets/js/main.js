@@ -298,14 +298,14 @@ $(document).ready(function() {
 
 	//FadeOut notification
 	setTimeout(function(){ 
-		$('[datd-notify-hide]').slideUp(400);
+		$('[data-notify-hide]').slideUp(400);
 	}, 2000);
 
-	$('[datd-notify-hide]').dblclick(function(event) {
+	$('[data-notify-hide]').dblclick(function(event) {
 		$(this).slideUp(400);
-	});
-	
+	});	
 });
+
 
 
 

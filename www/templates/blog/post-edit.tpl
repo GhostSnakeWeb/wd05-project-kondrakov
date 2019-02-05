@@ -36,7 +36,12 @@
 							</div>
 						<?php } ?>
 					</div>		
-					<div class="post-add-form__textarea"><label class="label">Содержание<textarea class="textarea" type="text" placeholder="Введите описание" name="postText"><?=$post['text']?></textarea></label></div>
+					<div class="post-add-form__textarea"><label class="label"><p>Содержание</p><textarea class="textarea" id="ckEditor" type="text" placeholder="Введите описание" name="postText"><?=$post['text']?></textarea>
+					<?php 
+						//Подключаем текстовый редактор через шаблон
+						include_once ROOT . "templates/_parts/_ckEditorConnect.tpl";
+					?>
+					</label></div>
 					<div class="post-add-form-button"><input class="button button-save" type="submit" value="Сохранить" name="postUpdate" />
 						<div class="post-add-form-button__cancel"><a class="button" href="<?=HOST?>blog">Отмена</a></div>
 					</div>

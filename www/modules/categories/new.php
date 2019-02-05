@@ -1,5 +1,11 @@
 <?php 
 
+//Закрываем доступ к странице для не админа
+if (!isAdmin()) {
+	header("Location: " . HOST);
+	die();
+}
+
 $title = "Создать новую категорию";
 
 if (isset($_POST['catNew'])) {

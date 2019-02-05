@@ -22,7 +22,12 @@
 						<div class="load-file-opis">Изображение jpg или png, рекомендуемая ширина 945px и больше, высота от 400px и более, вес до 2Мб.</div>
 						<div class="load-file-fieldset"><input class="inputfile" id="file-2" type="file" name="postImg" data-multiple-caption="{count} файлов выбрано" multiple="" /><label for="file-2">Выбрать файл</label><span class="file__inner-caption">Файл не выбран</span></div>
 					</div>
-					<div class="post-add-form__textarea"><label class="label">Содержание<textarea class="textarea" type="text" placeholder="Введите описание" name="postText"></textarea></label></div>
+					<div class="post-add-form__textarea"><label class="label"><p>Содержание</p><textarea class="textarea" id="ckEditor" type="text" placeholder="Введите описание" name="postText"></textarea>
+					<?php 
+						//Подключаем текстовый редактор через шаблон
+						include_once ROOT . "templates/_parts/_ckEditorConnect.tpl";
+					?>
+					</label></div>
 					<div class="post-add-form-button"><input class="button button-save" type="submit" value="Сохранить" name="postNew" />
 						<div class="post-add-form-button__cancel"><a class="button" href="<?=HOST?>blog">Отмена</a></div>
 					</div>

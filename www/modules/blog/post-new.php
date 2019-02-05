@@ -1,5 +1,11 @@
 <?php 
 
+//Закрываем доступ к странице для не админа
+if (!isAdmin()) {
+	header("Location: " . HOST);
+	die();
+}
+
 $title = "Блог - Добавить новый пост";
 
 //Находим все категории по алфавитному порядку
@@ -102,7 +108,7 @@ if (isset($_POST['postNew'])) {
 		}
 
 		R::store($post);
-		header('Location: ' . HOST . "blog");
+		header('Location: ' . HOST . "blog?result=postCreated");
 		exit();
 	}
 
