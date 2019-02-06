@@ -14,15 +14,21 @@ if (isset($_POST['catNew'])) {
 		$errors[] = ['title' => 'Введите название категории'];
 	}
 
+	//Проверям, если есть такая категория в БД, то выводим ошибку
+	if (R::findOne('categories', 'cat_title = ?', array($_POST['catTitle']))) {
+		$errors[] = ['title' => "Данная категория уже существует"];
+	}
+
 	if (empty($errors)) {
+
 		$cat = R::dispense('categories');
 		$cat->cat_title = htmlentities($_POST['catTitle']);
 		R::store($cat);
 		header("Location: " . HOST . "blog/categories?result=catCreated");
 		exit();
-	}
 
-}
+	}
+}		
 
 //Готовим контент для центральной части
 //ob_start() - буферизированный вывод.
