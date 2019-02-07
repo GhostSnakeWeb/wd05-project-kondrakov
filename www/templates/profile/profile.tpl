@@ -12,7 +12,7 @@
 
 							<?php #Проверяем есть аватарка ?>
 							<?php if ($_SESSION['logged_user']['avatar'] != "") { ?>
-								<img src="<?=HOST?>usercontent/avatar/<?=$currentUser->avatar?>" alt="<?=$currentUser->name?> <?=$currentUser->surname?>" />
+								<img src="<?=HOST?>usercontent/avatar/<?=$currentUser->avatar?>"/>
 							<?php } ?>
 							
 						</div>

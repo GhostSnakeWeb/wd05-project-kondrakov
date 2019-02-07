@@ -85,3 +85,7 @@ body {
 .profile__button {
 	z-index: 99;
 }
+
+.notify-hide {
+	display: none;
+}

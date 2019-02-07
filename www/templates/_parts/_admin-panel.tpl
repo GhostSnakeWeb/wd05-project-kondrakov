@@ -3,7 +3,7 @@
 		<div class="avatar-small">
 			<?php #Проверяем есть аватарка ?>
 			<?php if ($_SESSION['logged_user']['avatar_small'] != "") { ?>
-				<img src="<?=HOST?>usercontent/avatar/<?=$_SESSION['logged_user']['avatar_small']?>">
+				<img src="<?=HOST?>usercontent/avatar/<?=$_SESSION['logged_user']['avatar_small']?>"/>
 			<?php } ?>
 		</div>
 		<div class="admin-panel-user-wrap">

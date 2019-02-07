@@ -473,7 +473,6 @@ input {
   border: 1px solid #b1bfc7;
   background-color: #fff;
   padding: 5px 15px;
-  margin-top: 10px;
   width: 100%;
   color: #000000;
   font-family: 'Open Sans', sans-serif;
@@ -1310,7 +1309,6 @@ a.message-author--email {
   font-family: 'Open Sans', sans-serif;
   font-weight: 900;
   line-height: 1.375;
-  padding-bottom: 10px;
   padding-top: 25px;
 }
 .load-file-wrap {

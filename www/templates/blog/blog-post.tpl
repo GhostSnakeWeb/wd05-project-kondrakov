@@ -15,9 +15,12 @@
 							<div class="blog-post__info-name"><?=$post['name']?> <?=$post['surname']?></div>
 							<div class="blog-post__info-category"><a href="#!"><?=$post['cat_title']?></a></div>
 							<div class="blog-post__info-date"><? echo rus_date("j F Y H:i", strtotime($post['date_time']));?></div>
-							<div class="blog-post__info-comment-count"><a href="#!">2 комментария</a></div>
+							<?php if (count($comments) > 0) { ?>
+							<div class="blog-post__info-comment-count"><a href="#comments"><?php commentNumber(count($comments));?></a></div>
+							<?php } ?>
 						</div>
-					</div>				
+					</div>	
+
 					<?php if ($post['post_img'] != ""){ ?>
 							<img class="blog-post__image" alt="<?=$post['title']?>" src="<?=HOST?>usercontent/blog/<?=$post['post_img']?>" />
 					<?php } else { ?>
@@ -29,45 +32,21 @@
 					<div class="button__arrow-wrap"><a class="button button-backward" href="#!">Назад</a><i class="fas fa-arrow-left"></i></div>
 					<div class="button__arrow-wrap"><a class="button button-forward" href="#!">Вперед</a><i class="fas fa-arrow-right"></i></div>
 				</div>
-				<div class="two-comments__title">2 комментария</div>
-				<div class="two-comments-container">
-					<div class="two-comments-container__avatar">
-						<div class="avatar"><img src="../img/avatars/avatar-2.png" /></div>
-					</div>
-					<div class="two-comments-container-block">
-						<div class="two-comments-container-block-wrap">
-							<div class="two-comments-container-block-wrap__name">Джон До</div>
-							<div class="two-comments-container-block-wrap__date"><i class="far fa-clock two-comments-container-block-wrap-icon"></i>05 Мая 2017 года в 15:45</div>
-						</div>
-						<div class="two-comments-container-block__message">Замечательный парк, обязательно отправлюсь туда этим летом.</div>
-					</div>
-				</div>
-				<div class="two-comments-container">
-					<div class="two-comments-container__avatar">
-						<div class="avatar"><img src="../img/avatars/avatar-3.png" /></div>
-					</div>
-					<div class="two-comments-container-block">
-						<div class="two-comments-container-block-wrap">
-							<div class="two-comments-container-block-wrap__name">Джон До</div>
-							<div class="two-comments-container-block-wrap__date"><i class="far fa-clock two-comments-container-block-wrap-icon"></i>05 Мая 2017 года в 15:45</div>
-						</div>
-						<div class="two-comments-container-block__message">Замечательный парк, обязательно отправлюсь туда этим летом.</div>
-					</div>
-				</div>
-				<div class="comment mt-35 mb-120">
-					<div class="leave-comment-title">Оставить комментарий</div>
-					<div class="leave-comment">
-						<div class="leave-comment-avatar">
-							<div class="avatar"><img src="../img/avatars/avatar-1.jpg" /></div>
-						</div>
-						<form class="leave-comment-form">
-							<div class="leave-comment-form__name">Юрий Ключевский</div>
-							<div class="notification__error">Комментарий не может быть пустым.</div>
-							<div class="mb-10"></div><textarea class="textarea" type="text" placeholder="Присоединиться к обсуждению..."></textarea>
-							<div class="mb-10"></div><input class="button" type="submit" value="Опубликовать" name="button" />
-						</form>
-					</div>
-				</div>
+				
+				<?php 
+
+					//Если количество элементов больше 0
+					if (count($comments) > 0) { ?>
+					<div id="comments" class="two-comments__title"><?php commentNumber(count($comments)); ?></div>
+					<?php foreach ($comments as $comment){ 
+						include ROOT . 'templates/blog/_comment-card.tpl';						
+					} ?>
+				<?php } ?>
+
+				<!-- Добавление комментария -->
+
+				<?php include ROOT . 'templates/blog/_add-comment-form.tpl'; ?>
+
 			</div>
 		</div>
 	</div>

@@ -2,7 +2,7 @@
 
 //SQL запрос. 
 //Выбираем все что связано с постом, именем и фамилией пользователя, названием категории
-$sql = '
+$sqlPost = '
 		SELECT 
 			posts.id, posts.title, posts.text, posts.post_img, posts.date_time, posts.author_id, posts.cat,
 	    	users.name, users.surname,
@@ -13,12 +13,43 @@ $sql = '
     	WHERE posts.id = ' . $_GET['id'] . ' LIMIT 1';
 
 //getAll - создает массив с удовлетворяющими запросу записями из БД
-$post = R::getAll($sql);
+$post = R::getAll($sqlPost);
 
 //Чтобы работать с внутренним массивом, выбираем сразу запись под индексом 0 (она там и так одна)
 $post = $post[0];
 
 $title = $post['title'];
+
+//Запрос на получение комментов. JOIN'им таблицу юзеров
+$sqlComments = 'SELECT
+			comments.text, comments.date_time, comments.user_id,
+			users.name, users.surname, users.avatar_small
+		FROM `comments` 
+		INNER JOIN users ON comments.user_id = users.id
+		WHERE comments.post_id = ' . $_GET['id'];
+$comments = R::getAll($sqlComments);
+
+//Если пришел массив POST с addComment
+if (isset($_POST['addComment'])) {
+	if (trim($_POST['commentText']) == '') {
+		$errors[] = ['title' => 'Введите текст комментария'];
+	}
+
+	if (empty($errors)) {
+		$comment = R::dispense('comments');
+		// Записываем id поста, к которому был сделан коммент
+		$comment->postId = htmlentities($_GET['id']);
+		// Записываем id пользователя, написавшего коммент
+		$comment->userId = htmlentities($_SESSION['logged_user']['id']);
+		// Текст из textarea записываем в БД
+		$comment->text = htmlentities($_POST['commentText']);
+		// Записываем время коммента
+		$comment->dateTime = R::isoDateTime();
+		R::store($comment);
+		//Повторно запускаем получение всех комментов. Таким оразом избегаем перенаправления
+		$comments = R::getAll($sqlComments);
+	}
+}
 
 //Готовим контент для центральной части
 ob_start();
