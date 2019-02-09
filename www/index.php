@@ -70,8 +70,18 @@ switch ($uri[0]) {
 		include ROOT . 'modules/about/index.php';
 		break;
 
+	// ::::::::::: CONTACTS :::::::::::::::::::::::
+
 	case 'contacts':
 		include ROOT . 'modules/contacts/index.php';
+		break;
+
+	case 'contacts-edit':
+		include ROOT . 'modules/contacts/edit.php';
+		break;
+
+	case 'messages':
+		include ROOT . 'modules/contacts/messages.php';
 		break;
 
 	// ::::::::::: CATEGORIES :::::::::::::::::

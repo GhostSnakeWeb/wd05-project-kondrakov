@@ -89,3 +89,7 @@ body {
 .notify-hide {
 	display: none;
 }
+
+.input-text {
+	margin-top: 8px;
+}
