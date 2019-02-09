@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 05 2019 г., 20:43
+-- Время создания: Фев 09 2019 г., 08:44
 -- Версия сервера: 5.5.61
 -- Версия PHP: 5.5.38
 
@@ -38,11 +38,11 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `cat_title`) VALUES
-(1, 'WordPress'),
 (3, 'CSS'),
 (4, 'JavaScript'),
 (5, 'Бизнес'),
-(6, 'Новости');
+(6, 'Новости'),
+(8, 'Общая информация');
 
 --
 -- Индексы сохранённых таблиц
@@ -62,7 +62,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT для таблицы `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
