@@ -93,3 +93,7 @@ body {
 .input-text {
 	margin-top: 8px;
 }
+
+.message-author {
+	align-items: center;
+}
