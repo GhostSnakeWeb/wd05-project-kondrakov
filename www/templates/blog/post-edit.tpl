@@ -2,11 +2,11 @@
 	<div class="container user-content pt-80">
 		<div class="row">
 			<div class="col-10 offset-1">
-				<div class="title-1 post-add__title">Редактировать пост</div>
-				<?php require ROOT . 'templates/_parts/_errors.tpl';?>
 				<?php if (isset($_GET['result'])) {
 					include ROOT . 'templates/blog/_results.tpl';
 				} ?>
+				<div class="title-1 post-add__title">Редактировать пост</div>
+				<?php require ROOT . 'templates/_parts/_errors.tpl';?>
 				<form class="post-add-form" action="<?=HOST?>blog/post-edit?id=<?=$post['id']?>" method="POST" enctype="multipart/form-data">
 					<div class="post-add-form__name">
 						<label class="label">Название<input class="input-text" type="text" placeholder="Введите название" name="postTitle" value="<?=$post['title']?>" />
