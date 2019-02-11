@@ -4,6 +4,9 @@
 			<div class="col-10 offset-1">
 				<div class="title-1 post-add__title">Редактировать пост</div>
 				<?php require ROOT . 'templates/_parts/_errors.tpl';?>
+				<?php if (isset($_GET['result'])) {
+					include ROOT . 'templates/blog/_results.tpl';
+				} ?>
 				<form class="post-add-form" action="<?=HOST?>blog/post-edit?id=<?=$post['id']?>" method="POST" enctype="multipart/form-data">
 					<div class="post-add-form__name">
 						<label class="label">Название<input class="input-text" type="text" placeholder="Введите название" name="postTitle" value="<?=$post['title']?>" />
@@ -30,7 +33,7 @@
 								<div class="load-file-wrap-img">
 									<img class="load-file-wrap-img__image" src="<?=HOST?>usercontent/blog/<?=$post['post_img_small']?>" alt="<?=$post['title']?>" />
 									<div class="load-file-wrap__button">
-										<a class="button button-delete button-small" href="#!">Удалить</a>
+										<input class="button button-delete button-small" type="submit" value="Удалить" name="picDelete"/>
 									</div>
 								</div>
 							</div>
