@@ -13,10 +13,21 @@ $message = R::load('messages', $_GET['id']);
 
 if (isset($_POST['messageDelete'])) {
 
+	$messageImgFolderLocation = ROOT . 'usercontent/upload_files/';
+
+	$messageImg = $message->message_file;
+
+	if ($messageImg != '') {
+		//Записываем текущее нахождение картинки и её имя
+		$picurl = $messageImgFolderLocation . $messageImg; 
+		//Удаляем картинку, если существует такой файл
+		if (file_exists($picurl)) {
+			unlink($picurl);
+		}
+	}	
 	
-	
-	R::trash($cat);
-	header("Location: " . HOST . "blog/categories?result=catDeleted");
+	R::trash($message);
+	header('Location: ' . HOST . 'messages?result=messageDeleted');
 	exit();
 
 }

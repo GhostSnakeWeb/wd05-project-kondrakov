@@ -97,3 +97,7 @@ body {
 .message-author {
 	align-items: center;
 }
+
+.message-date {
+	width: calc(100% - 130px);
+}

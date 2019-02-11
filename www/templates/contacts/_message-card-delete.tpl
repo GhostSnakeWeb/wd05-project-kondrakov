@@ -1,6 +1,5 @@
 <div class="message mb-20">
 	<div class="message-container">
-		<div class="delete"><a class="button button-delete button-small" href="<?=HOST?>delete-message">Удалить</a></div>
 		<div class="message-date"><?=$message->date_time?></div>
 		<div class="message-author">
 			<div class="message-author--name"><?=$message->name?></div><a class="message-author--email" href="mailto:<?=$message->email?>" target="_blank"><?=$message->email?></a>

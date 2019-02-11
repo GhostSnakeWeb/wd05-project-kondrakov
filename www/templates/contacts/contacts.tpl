@@ -4,7 +4,7 @@
 			<?php 
 				//Если пришел массив GET с result
 				if (isset($_GET['result'])) {
-					include ROOT . 'templates/categories/_results.tpl';
+					include ROOT . 'templates/contacts/_results.tpl';
 				}
 			?>
 			<div class="col contacts-links">
