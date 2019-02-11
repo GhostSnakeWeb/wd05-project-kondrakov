@@ -12,6 +12,8 @@ if (isset($_POST['profile-update'])) {
 
 	if (trim($_POST['email']) == '') {
 		$errors[] = ['title' => 'Введите Email'];
+	} else if (!preg_match('/^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i', trim($_POST['email']))) {
+		$errors[] = ['title' => 'Введите корректный Email'];
 	}
 
 	if (trim($_POST['name']) == '') {
