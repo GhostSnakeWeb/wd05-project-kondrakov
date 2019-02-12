@@ -7,7 +7,6 @@ $about = R::findOne('about', 1);
 //Делаем сортировку постов по id по убыванию. Т.е. последние посты будут первые. Ограничиваемся 3 постами
 $posts = R::find('posts', 'ORDER BY id DESC LIMIT 3');
 
->>>>>>> Main page is ready and fix some links and bugs
 //Готовим контент для центральной части
 //ob_start() - буферизированный вывод.
 ob_start();
