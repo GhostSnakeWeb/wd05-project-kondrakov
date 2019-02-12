@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 05 2019 г., 20:43
+-- Время создания: Фев 11 2019 г., 10:06
 -- Версия сервера: 5.5.61
 -- Версия PHP: 5.5.38
 
@@ -49,12 +49,13 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `email`, `password`, `role`, `name`, `surname`, `city`, `country`, `avatar`, `avatar_small`, `recovery_code`, `recovery_code_times`) VALUES
 (1, 'vladan9820@mail.ru', '$2y$10$LHR4qkEs0uT/4SRrJexO5eEAgnJExgduCV2Tx5t0JF684b5CASPZS', 'admin', 'Владислав', 'Кондраков', 'Оренбург', 'Россия', '1272825169.jpg', '48-1272825169.jpg', 'jdPouprYAW5XOq0', 3),
-(2, 'info2@mail.ru', '$2y$10$A1s4qA53pXNhXlAyR3iJ1uNR29.nldwxZj3EGQMnn.6w.bTAwnqOi', 'admin', 'Андрей', 'Григорьев', 'Санкт-Петербург', 'Россия', '519521186.png', '48-519521186.png', 'rF1qyVsevZtCBIl', 0),
+(2, 'info2@mail.ru', '$2y$10$A1s4qA53pXNhXlAyR3iJ1uNR29.nldwxZj3EGQMnn.6w.bTAwnqOi', 'admin', 'Андрей', 'Григорьев', 'Санкт-Петербург', 'Россия', NULL, NULL, 'rF1qyVsevZtCBIl', 0),
 (3, 'info87@mail.ru', '$2y$10$Deb9YV0EEnNWqevfNgokK.n0j5ZWEONkvHIRTxjnNxQTbHNDJET62', 'editor', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (4, 'info56@gmail.com', '$2y$10$UgZinCiDzOIjQZf0eMh9.uFTCNxErgTnJApE4y.W1X5LNioEtHoqi', 'user', 'Емельян', 'Казаков', 'Витебск', 'Россия', '549790414.jpg', '48-549790414.jpg', NULL, NULL),
 (5, 'info25@mail.ru', '$2y$10$7jFYna93e8C/ANLlwNQcEuLIU6bM9TAiR.upjqe3jmbqfHqSHNoKK', 'user', 'Анатолий', 'Крюк', 'Берлин', 'Германия', '730929847.jpg', '48-730929847.jpg', NULL, NULL),
 (6, 'rememberme@mail.ru', '$2y$10$LpOD15EaEHTBdOSOG9RCdu28hUtIxugxqjyhnSoa6LB6oILFfa7Oq', 'user', 'Федор', 'Емельяненко', '', '', NULL, NULL, NULL, NULL),
-(7, 'reaper@yandex.ru', '$2y$10$8cjX0M/FIgyLeQIr.7XSJ.e8FE46AfRpfZks/Lw8b7Yb5tD8x2cem', 'user', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(7, 'reaper@yandex.ru', '$2y$10$8cjX0M/FIgyLeQIr.7XSJ.e8FE46AfRpfZks/Lw8b7Yb5tD8x2cem', 'user', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(8, 'gnome@gmail.com', '$2y$10$nuE1oWO4x/65CvCDo94tO.nC.PkDKOZk2K/teMt8.0zJ8d2Ozpecm', 'user', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Индексы сохранённых таблиц
@@ -74,7 +75,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

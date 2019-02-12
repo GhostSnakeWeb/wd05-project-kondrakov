@@ -25,33 +25,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `categories`
+-- Структура таблицы `messages`
 --
 
-CREATE TABLE `categories` (
+CREATE TABLE `messages` (
   `id` int(11) UNSIGNED NOT NULL,
-  `cat_title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `message` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `message_file_name_original` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `message_file` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `date_time` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Дамп данных таблицы `categories`
+-- Дамп данных таблицы `messages`
 --
 
-INSERT INTO `categories` (`id`, `cat_title`) VALUES
-(3, 'CSS'),
-(4, 'JavaScript'),
-(5, 'Бизнес'),
-(9, 'WordPress'),
-(10, 'Новости');
+INSERT INTO `messages` (`id`, `email`, `name`, `message`, `message_file_name_original`, `message_file`, `date_time`) VALUES
+(7, 'loki@mail.ru', 'Виталий', 'Без файла (', NULL, NULL, '2019-02-09 15:12:40');
 
 --
 -- Индексы сохранённых таблиц
 --
 
 --
--- Индексы таблицы `categories`
+-- Индексы таблицы `messages`
 --
-ALTER TABLE `categories`
+ALTER TABLE `messages`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -59,9 +60,9 @@ ALTER TABLE `categories`
 --
 
 --
--- AUTO_INCREMENT для таблицы `categories`
+-- AUTO_INCREMENT для таблицы `messages`
 --
-ALTER TABLE `categories`
+ALTER TABLE `messages`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 

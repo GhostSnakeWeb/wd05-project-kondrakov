@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 11 2019 г., 10:05
+-- Время создания: Фев 11 2019 г., 10:06
 -- Версия сервера: 5.5.61
 -- Версия PHP: 5.5.38
 
@@ -25,33 +25,38 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `categories`
+-- Структура таблицы `skills`
 --
 
-CREATE TABLE `categories` (
+CREATE TABLE `skills` (
   `id` int(11) UNSIGNED NOT NULL,
-  `cat_title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `html` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `css` int(11) UNSIGNED DEFAULT NULL,
+  `js` int(11) UNSIGNED DEFAULT NULL,
+  `jquery` double DEFAULT NULL,
+  `php` int(11) UNSIGNED DEFAULT NULL,
+  `mysql` int(11) UNSIGNED DEFAULT NULL,
+  `git` int(11) UNSIGNED DEFAULT NULL,
+  `gulp` int(11) UNSIGNED DEFAULT NULL,
+  `yarn` int(11) UNSIGNED DEFAULT NULL,
+  `npm` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Дамп данных таблицы `categories`
+-- Дамп данных таблицы `skills`
 --
 
-INSERT INTO `categories` (`id`, `cat_title`) VALUES
-(3, 'CSS'),
-(4, 'JavaScript'),
-(5, 'Бизнес'),
-(9, 'WordPress'),
-(10, 'Новости');
+INSERT INTO `skills` (`id`, `html`, `css`, `js`, `jquery`, `php`, `mysql`, `git`, `gulp`, `yarn`, `npm`) VALUES
+(1, '60', 60, 45, 55, 70, 70, 80, 45, 30, 50);
 
 --
 -- Индексы сохранённых таблиц
 --
 
 --
--- Индексы таблицы `categories`
+-- Индексы таблицы `skills`
 --
-ALTER TABLE `categories`
+ALTER TABLE `skills`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -59,10 +64,10 @@ ALTER TABLE `categories`
 --
 
 --
--- AUTO_INCREMENT для таблицы `categories`
+-- AUTO_INCREMENT для таблицы `skills`
 --
-ALTER TABLE `categories`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+ALTER TABLE `skills`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

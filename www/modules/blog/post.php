@@ -4,7 +4,7 @@
 //Выбираем все что связано с постом, именем и фамилией пользователя, названием категории
 $sqlPost = '
 		SELECT 
-			posts.id, posts.title, posts.text, posts.post_img, posts.date_time, posts.author_id, posts.cat,
+			posts.id, posts.title, posts.text, posts.post_img, posts.date_time, posts.author_id, posts.cat, posts.update_time,
 	    	users.name, users.surname,
 	    	categories.cat_title
     	FROM `posts`

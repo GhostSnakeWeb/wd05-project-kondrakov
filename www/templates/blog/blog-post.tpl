@@ -14,7 +14,13 @@
 						<div class="blog-post__info">
 							<div class="blog-post__info-name"><?=$post['name']?> <?=$post['surname']?></div>
 							<div class="blog-post__info-category"><a href="#!"><?=$post['cat_title']?></a></div>
-							<div class="blog-post__info-date"><? echo rus_date("j F Y H:i", strtotime($post['date_time']));?></div>
+
+							<?php if ($post['update_time'] != '') { ?>
+								<div class="blog-post__info-date"><? echo 'Обновлен: ' . rus_date("j F Y H:i", strtotime($post['update_time']));?></div>
+							<?php } else { ?>
+								<div class="blog-post__info-date"><? echo rus_date("j F Y H:i", strtotime($post['date_time']));?></div>
+							<?php } ?>
+							
 							<?php if (count($comments) > 0) { ?>
 							<div class="blog-post__info-comment-count"><a href="#comments"><?php commentNumber(count($comments));?></a></div>
 							<?php } ?>
