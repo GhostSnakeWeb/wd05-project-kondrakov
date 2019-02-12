@@ -29,26 +29,17 @@ if (isset($_POST['newMessage'])) {
 			$errors[] = ['title' => 'Размер изображения не должен быть более 2 Мб'];
 		}
 
-		if (preg_match("/\.(pdf|jpg|jpeg|png|doc)$/i", $fileName)) {
-			$errors[] = ['title' => 'Неверный формат файла', 'desc' => '<p>Файл должен быть в формате pdf, jpg, jpeg, doc или png.</p>'];
+		if (preg_match("/\.(pdf|jpg|jpeg|png|doc)$/i", $fileName) == 0) {
+			$errors[] = [
+				'title' => "Неверный формат файла",
+				'desc' => "<p>Файл должен быть в формате pdf, jpg, jpeg, doc или png.</p>"
+			];
 		}
 
 		if ($fileErrorMsg == 1) {
 			$errors[] = ['title' => 'При загрузке файла произошла ошибка. Повторите попытку!'];
 		}
 
-		//Создаем индивидуальное имя для файла
-		$db_file_name = rand(10000000000000, 99999999999999) . "." . $fileExt;
-		//Где будем хранить файлы
-		$fileFolderLocation = ROOT . 'usercontent/upload_files/';
-		//Переменная, содержащая индивидуальное имя файла и местонахождение файла для дальнейшей загрузки
-		$uploadfile = $fileFolderLocation . $db_file_name;
-		//Перемещаем файл
-		$moveResult = move_uploaded_file($fileTempLoc, $uploadfile);
-
-		if ($moveResult != true) {
-			$errors[] = ['title' => 'Ошибка сохранения файла'];
-		}
 	}
 
 	if (empty($errors)) {
@@ -59,6 +50,19 @@ if (isset($_POST['newMessage'])) {
 		$message->dateTime = R::isoDateTime();
 
 		if(isset($_FILES['file']['name']) && $_FILES['file']['tmp_name'] != "") {
+
+			//Создаем индивидуальное имя для файла
+			$db_file_name = rand(10000000000000, 99999999999999) . "." . $fileExt;
+			//Где будем хранить файлы
+			$fileFolderLocation = ROOT . 'usercontent/upload_files/';
+			//Переменная, содержащая индивидуальное имя файла и местонахождение файла для дальнейшей загрузки
+			$uploadfile = $fileFolderLocation . $db_file_name;
+			//Перемещаем файл
+			$moveResult = move_uploaded_file($fileTempLoc, $uploadfile);
+
+			if ($moveResult != true) {
+				$errors[] = ['title' => 'Ошибка сохранения файла'];
+			}
 			//Записываем оригинальное имя файла, которое загрузил пользователь
 			$message->message_file_name_original = $fileName;
 			//Записываем сгенерированное имя файла
