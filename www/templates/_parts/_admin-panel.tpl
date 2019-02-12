@@ -14,8 +14,8 @@
 	<nav class="admin-panel-menu">
 		<a class="admin-panel-menu__link" href="<?=HOST?>blog/post-new"><i class="fas fa-plus-circle admin-panel-menu__icon"></i>Пост</a>
 		<a class="admin-panel-menu__link" href="<?=HOST?>blog/categories"><i class="fas fa-folder admin-panel-menu__icon"></i>Категории</a>
-		<a class="admin-panel-menu__link" href="works-add.html"><i class="fas fa-plus-circle admin-panel-menu__icon"></i>Работа</a>
-		<a class="admin-panel-menu__link" href="edit-about-me.html"><i class="fas fa-edit admin-panel-menu__icon"></i>Обо мне</a>
+		<a class="admin-panel-menu__link" href="<?=HOST?>edit-jobs"><i class="fas fa-plus-circle admin-panel-menu__icon"></i>Работа</a>
+		<a class="admin-panel-menu__link" href="<?=HOST?>edit-text"><i class="fas fa-edit admin-panel-menu__icon"></i>Обо мне</a>
 		<a class="admin-panel-menu__link" href="contacts-edit.html"><i class="fas fa-edit admin-panel-menu__icon"></i>Контакты</a>
 		<a class="admin-panel-menu__link" href="contacts-messages.html"><i class="fas fa-envelope admin-panel-menu__icon"></i>Сообщения</a>
 	</nav>

@@ -66,11 +66,27 @@ switch ($uri[0]) {
 		include ROOT . 'modules/profile/edit.php';
 		break;
 
+	// ::::::::::: ABOUT ::::::::::::::::::::::::::
+
 	case 'about':
 		include ROOT . 'modules/about/index.php';
 		break;
+    
+	case 'edit-text':
+		include ROOT . 'modules/about/edit-text.php';
+		break;
 
-	// ::::::::::: CONTACTS :::::::::::::::::::::::
+	case 'edit-skills':
+		include ROOT . 'modules/about/edit-skills.php';
+		break;
+
+	case 'edit-jobs':
+		include ROOT . 'modules/about/edit-jobs.php';
+		break;
+
+	case 'delete-jobs':
+		include ROOT . 'modules/about/delete-jobs.php';
+		break;
 
 	case 'contacts':
 		include ROOT . 'modules/contacts/index.php';
