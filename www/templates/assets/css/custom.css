@@ -44,6 +44,10 @@
   	border-radius: 120px;
 }
 
+.avatar--edit-about-me {
+  background-size: 83.9px;
+}
+
 .to-login-page {
 	width: 100%;
 }
@@ -88,4 +92,12 @@ body {
 
 .notify-hide {
 	display: none;
+}
+
+.bg-technology {
+	padding-bottom: 50px;
+}
+
+.input-text {
+	margin-top: 8px;
 }
