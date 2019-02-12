@@ -29,9 +29,9 @@ if (isset($_POST['newMessage'])) {
 			$errors[] = ['title' => 'Размер изображения не должен быть более 2 Мб'];
 		}
 
-		/*if (preg_match("/\.(pdf|jpg|jpeg|png|doc)$/i", $fileName)) {
+		if (preg_match("/\.(pdf|jpg|jpeg|png|doc)$/i", $fileName)) {
 			$errors[] = ['title' => 'Неверный формат файла', 'desc' => '<p>Файл должен быть в формате pdf, jpg, jpeg, doc или png.</p>'];
-		}*/
+		}
 
 		if ($fileErrorMsg == 1) {
 			$errors[] = ['title' => 'При загрузке файла произошла ошибка. Повторите попытку!'];

@@ -73,9 +73,29 @@
 				<?php require ROOT . 'templates/_parts/_success.tpl';?>
 				<form class="form-contact" method="POST" action="<?=HOST?>contacts" enctype="multipart/form-data">
 					<div class="form-contact__title">Связаться со мной</div>
-					<div class="form-contact__name"><input class="input-text" name="name" value="<?=@$_POST['name']?>" type="text" placeholder="Введите имя" /></div>
-					<div class="form-contact__email"><input class="input-text" value="<?=@$_POST['email']?>" type="text" placeholder="Email" name="email" /></div>
-					<div class="form-contact__message"><textarea name="message" class="textarea mt-10" type="text" placeholder="Сообщение"><?=@$_POST['message']?></textarea></div>
+					<div class="form-contact__name">
+						<input 
+							class="input-text" 
+							name="name" 
+							<?php if (!empty($errors)) { ?>
+								value="<?=@$_POST['name']?>"
+							<?php } ?> 
+							type="text" 
+							placeholder="Введите имя" />
+					</div>
+					<div class="form-contact__email">
+						<input 
+							class="input-text" 
+							<?php if (!empty($errors)) { ?>
+								value="<?=@$_POST['email']?>"
+							<?php } ?>
+							type="text" 
+							placeholder="Email" 
+							name="email" />
+					</div>
+					<div class="form-contact__message">
+						<textarea name="message" class="textarea mt-10" type="text" placeholder="Сообщение"><?php if (!empty($errors)) { ?><?=@$_POST['message']?><?php } ?></textarea>
+					</div>
 					<div class="form-contact__load-file">
 						<div class="load-file-title">Прикрепить файл </div>
 						<div class="load-file-opis">jpg, png, pdf, doc, весом до 2Мб.</div>
