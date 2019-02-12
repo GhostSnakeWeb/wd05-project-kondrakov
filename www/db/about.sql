@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 11 2019 г., 10:05
+-- Время создания: Фев 12 2019 г., 14:55
 -- Версия сервера: 5.5.61
 -- Версия PHP: 5.5.38
 
@@ -40,7 +40,7 @@ CREATE TABLE `about` (
 --
 
 INSERT INTO `about` (`id`, `name`, `description`, `photo`) VALUES
-(1, 'Кондраков Владислав', '<div class=\"about-me-description__content\">\r\n<p><span style=\"font-family:Open Sans\">Я веб разработчик-любитель из Оренбурга. Мне 20 лет.</span></p>\r\n\r\n<p><span style=\"font-family:Open Sans\">Учусь в университете. Недавно начал учить веб-разработку и мне это нравится. Хочу в дальнейшем заниматься разработкой современных сайтов и приложений.</span></p>\r\n\r\n<p><span style=\"font-family:Open Sans\">Этот сайт я сделал в рамках обучения в школе онлайн обучения WebCademy. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!</span></p>\r\n</div>\r\n\r\n<h2><strong>Что я умею</strong></h2>\r\n\r\n<div class=\"about-me-description__content\">\r\n<p><span style=\"font-family:Open Sans\">Меня привлекет Frontend и Backend разработка, это мое хобби и, надеюсь, в дальнейшем будущая работа. Также знаком и могу решать не сложные задачи на Backend.</span></p>\r\n\r\n<p><span style=\"font-family:Open Sans\">Знаком и использую современный workflow, работаю с репозиториями git и сборкой проекта на gulp.</span></p>\r\n</div>\r\n', '1230657660.jpg');
+(1, 'Кондраков Владислав', '<div class=\"about-me-description__content\">\r\n<p><span style=\"font-family:Open Sans\">Я веб разработчик-любитель из Оренбурга. Мне 20 лет.</span></p>\r\n\r\n<p><span style=\"font-family:Open Sans\">Учусь в университете. Недавно начал учить веб-разработку и мне это нравится. Хочу в дальнейшем заниматься разработкой современных сайтов и приложений.</span></p>\r\n\r\n<p><span style=\"font-family:Open Sans\">Этот сайт я сделал в рамках обучения в школе онлайн обучения WebCademy. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!</span></p>\r\n</div>\r\n\r\n<h2><strong>Что я умею</strong></h2>\r\n\r\n<div class=\"about-me-description__content\">\r\n<p><span style=\"font-family:Open Sans\">Меня привлекет Frontend и Backend разработка, это мое хобби и, надеюсь, в дальнейшем будущая работа. Также знаком и могу решать не сложные задачи на Backend.</span></p>\r\n\r\n<p><span style=\"font-family:Open Sans\">Знаком и использую современный workflow, работаю с репозиториями git и сборкой проекта на gulp.</span></p>\r\n</div>\r\n', '517871291.jpg');
 
 --
 -- Индексы сохранённых таблиц

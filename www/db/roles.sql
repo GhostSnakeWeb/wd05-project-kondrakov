@@ -25,38 +25,32 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `skills`
+-- Структура таблицы `roles`
 --
 
-CREATE TABLE `skills` (
+CREATE TABLE `roles` (
   `id` int(11) UNSIGNED NOT NULL,
-  `html` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `css` int(11) UNSIGNED DEFAULT NULL,
-  `js` int(11) UNSIGNED DEFAULT NULL,
-  `jquery` double DEFAULT NULL,
-  `php` int(11) UNSIGNED DEFAULT NULL,
-  `mysql` int(11) UNSIGNED DEFAULT NULL,
-  `git` int(11) UNSIGNED DEFAULT NULL,
-  `gulp` int(11) UNSIGNED DEFAULT NULL,
-  `yarn` int(11) UNSIGNED DEFAULT NULL,
-  `npm` int(11) UNSIGNED DEFAULT NULL
+  `role_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Дамп данных таблицы `skills`
+-- Дамп данных таблицы `roles`
 --
 
-INSERT INTO `skills` (`id`, `html`, `css`, `js`, `jquery`, `php`, `mysql`, `git`, `gulp`, `yarn`, `npm`) VALUES
-(1, '60', 60, 45, 55, 70, 70, 80, 45, 30, 50);
+INSERT INTO `roles` (`id`, `role_name`) VALUES
+(1, 'editor'),
+(2, 'admin'),
+(3, 'user'),
+(4, 'assistant');
 
 --
 -- Индексы сохранённых таблиц
 --
 
 --
--- Индексы таблицы `skills`
+-- Индексы таблицы `roles`
 --
-ALTER TABLE `skills`
+ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -64,10 +58,10 @@ ALTER TABLE `skills`
 --
 
 --
--- AUTO_INCREMENT для таблицы `skills`
+-- AUTO_INCREMENT для таблицы `roles`
 --
-ALTER TABLE `skills`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `roles`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
