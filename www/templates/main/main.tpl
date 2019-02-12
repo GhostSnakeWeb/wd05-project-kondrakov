@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="brief-resume">
 	<div class="sticky-footer-content">
 		<div class="container user-content pt-80">
@@ -54,6 +55,17 @@
 				<div class="card-post__image mb-15"><img src="../img/thumbs/post-thumb2.png" alt="Как я ходил в поход этим летом" /></div>
 				<div class="card-post__title">Как я ходил в поход этим летом</div><a class="button" href="#!">Читать</a>
 			</div>
+=======
+<?php require_once ROOT . "templates/about/_about-text.tpl"; ?>
+<div class="hr-line"></div>
+<div class="sticky-footer-content pt-80 pb-55">
+	<div class="container user-content mb-100">
+		<div class="works__header mb-40 title-1"><span> <strong>Новые записи в <a href="<?=HOST?>blog" target="_blank">блоге</a></strong></span></div>
+		<div class="row">
+			<?php foreach ($posts as $post) { 
+				include ROOT . 'templates/_parts/_blog-card.tpl';
+			} ?>
+>>>>>>> Main page is ready and fix some links and bugs
 		</div>
 	</div>
 </div>

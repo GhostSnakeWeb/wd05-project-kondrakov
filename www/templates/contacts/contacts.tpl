@@ -1,12 +1,6 @@
 <div class="sticky-footer-content">
 	<div class="container user-content pt-80 pb-80">
 		<div class="row">
-			<?php 
-				//Если пришел массив GET с result
-				if (isset($_GET['result'])) {
-					include ROOT . 'templates/categories/_results.tpl';
-				}
-			?>
 			<div class="col contacts-links">
 				<?php if (isAdmin()) { ?> 
 					<div class="contacts-links__button"><a class="button button-edit" href="<?=HOST?>contacts-edit">Редактировать</a></div>
@@ -71,6 +65,12 @@
 			<div class="col-md-4">
 				<form class="form-contact">
 					<div class="form-contact__title">Связаться со мной</div>
+					<?php 
+						//Если пришел массив GET с result
+						if (isset($_GET['result'])) {
+							include ROOT . 'templates/categories/_results.tpl';
+						}
+					?>
 					<div class="form-contact__name"><input class="input-text" type="text" placeholder="Введите имя" /></div>
 					<div class="form-contact__email"><input class="input-text" type="text" placeholder="Email" /></div>
 					<div class="form-contact__message"><textarea class="textarea mt-10" type="text" placeholder="Сообщение"></textarea></div>
