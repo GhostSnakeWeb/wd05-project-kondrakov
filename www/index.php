@@ -140,6 +140,28 @@ switch ($uri[0]) {
 		include ROOT . 'modules/blog/post.php';
 		break;
 
+	// ::::::::::: ESHOP :::::::::::::::::::::::
+
+	case 'shop':
+		include ROOT . 'modules/shop/index.php';
+		break;
+
+	case 'shop/new':
+		include ROOT . 'modules/shop/item-new.php';
+		break;
+
+	case 'shop/item':
+		include ROOT . 'modules/shop/item.php';
+		break;
+
+	case 'shop/item-edit':
+		include ROOT . 'modules/shop/item-edit.php';
+		break;
+
+	case 'shop/item-delete':
+		include ROOT . 'modules/shop/item-delete.php';
+		break;
+
 	default:
 		echo "404 and Main page";
 		break;

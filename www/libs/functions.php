@@ -127,4 +127,28 @@ function mbCutString($string, $length, $postfix = "...", $encoding = 'UTF-8'){
 	return $result;
 }
 
+function pagination($results_per_page, $type){
+	$number_of_results = R::count($type);
+	$number_of_pages = ceil($number_of_results / $results_per_page);
+
+	if ( !isset($_GET['page'])) {
+		$page_number = 1;
+	} else {
+		$page_number = $_GET['page'];
+	}
+
+	$starting_limit_number = ($page_number - 1) * $results_per_page;
+	$sql_pages_limit = 'LIMIT ' . $starting_limit_number . ',' . $results_per_page;
+
+	$result['number_of_pages'] = $number_of_pages; // 3
+	$result['page_number'] = $page_number; // 2
+	$result['sql_pages_limit'] = $sql_pages_limit; // LIMIT 3,3
+	return $result;
+}
+
+//Делит большое число по разрядам
+function price_format($price){
+	return number_format($price, 0, '', ' ');
+}
+
 ?>
