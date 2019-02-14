@@ -33,13 +33,16 @@
 						<?=price_format($item['price'])?> <span>рублей</span>
 					</div>
 				</div>
-
-				<a href="#!" class="button button-edit mb-15" id="addToCart">В корзину</a>
+				
+				<form id="addToCart" action="<?=HOST?>addtocart" method="POST">
+					<input type="hidden" name="itemId" id="itemId" value="<?=$item['id']?>">
+					<input class="button button-edit mb-15" type="submit" name="addToCart" value="В корзину">
+				</form>
 
 				<div class="user-content">
 					<?=$item['desc']?>
 				</div>
-				<a class="button" href="<?=HOST?>shop"><i class="fas fa-angle-left mr-10"></i>В магазин</a>
+				<a class="to-shop" href="<?=HOST?>shop"><i class="fas fa-angle-left mr-10"></i>В магазин</a>
 			</div>
 			<!-- // Item desc  -->
 		</div>

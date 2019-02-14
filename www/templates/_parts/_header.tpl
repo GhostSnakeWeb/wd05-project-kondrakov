@@ -24,4 +24,5 @@ if (isAdmin()) {
 			include ROOT . 'templates/_parts/_header-user-login-links.tpl';
 		}
 	?>
+	<?php include ROOT . 'templates/_parts/_cart-in-header.tpl' ?>
 </div>
