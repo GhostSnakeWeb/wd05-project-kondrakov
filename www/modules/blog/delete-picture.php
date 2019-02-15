@@ -1,18 +1,14 @@
 <?php 
 
-echo "Hello";
+// Записываем ID поста полученные из ajax
+$currentPostId = intval($_POST['id']);
 
+// Находим пост по ID
 $post = R::load('posts', $_POST['id']);
-
-echo "<pre>";
-print_r($post);
-echo "</pre>";
-
-die();
 
 //Удаление картинки в Редактировании поста
 
-/*$postImgFolderLocation = ROOT . 'usercontent/blog/';
+$postImgFolderLocation = ROOT . 'usercontent/blog/';
 
 $postImgBig = $post->post_img;
 
@@ -28,14 +24,16 @@ if ($postImgBig != '') {
 	if (file_exists($picurl320)) {
 		unlink($picurl320);
 	}
-}*/
 
-/*$post->post_img = null;
-$post->post_img_small = null;
+	$post->post_img = null;
+	$post->post_img_small = null;
 
-R::store($post);*/
+	R::store($post);
+	echo "true";
+} else {
+	echo "false";
+}
 
-/*header("Location: " . HOST . "blog/post-edit?id=" . $_GET['id'] . "&result=picDeleted");
-exit();*/
+
 
 ?>

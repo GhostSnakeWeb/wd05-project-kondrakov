@@ -132,6 +132,7 @@ if (isset($_POST['profile-update'])) {
 			//Берем большой файл
 			$target_file = $avatarFolderLocation . $db_file_name;
 			$resized_file = $avatarFolderLocation . "48-" . $db_file_name;
+
 			//Размеры для маленькой аватрки
 			$wmax = 48;
 			$hmax = 48;

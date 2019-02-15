@@ -355,9 +355,73 @@ $(document).ready(function() {
 	$('[data-notify-hide]').dblclick(function(event) {
 		$(this).slideUp(400);
 	});	
+
+	//ajax request to delete picture
+	$('#pictureDel').on('click', function(event) {
+		event.preventDefault();
+
+		// Находим форму на странице
+		var editForm = $('#editForm');
+		
+		// Находим инпут с id
+		var input = $('input[type=hidden]');
+
+		// Получаем id поста. Формируем данные, которые будут отправляться по ссылке
+		var delData = {'id':input.val()};
+
+		// Формируем ссылку куда будет отправляться запрос
+		var URL = editForm.attr('action');
+		URL = URL.replace('post-edit', 'delete-picture');
+
+		// Находим откуда (с какой позиции) начинается URL запрос
+		var posOfStartGet = URL.indexOf('?');
+		
+		// Записываем GET запрос в переменную
+		var str = URL.substring(posOfStartGet);
+
+		// Формируем корректный URL без GET запроса
+		var correctURL = URL.replace(str, '');
+
+		$.ajax({
+			type: 'POST',
+			url: correctURL,
+			data: delData,
+			success: function(message){
+				//console.log('Request was succesful!');
+				//console.log(message);
+				if (message == 'true') {
+					// Создаем блок с нотификацией
+					var notificationSuccess = 
+					$('<div class="notification__error mb-20 mt-20">'
+						 					+ 'Картинка успешно удалена'	+ '</div>');
+					// Вставляем нотификацию после заголовка
+					notificationSuccess.insertAfter('div.title-1').hide().slideDown(400);
+					setTimeout(function(){ 
+						notificationSuccess.slideUp(400);
+					}, 2400);
+
+					// Просто удаление
+					$('div.load-file-wrap').remove();
+
+					// Удаление с анимацией
+					/*$('div.load-file-wrap').slideUp(600);
+					setTimeout(function(){ 
+						$('div.load-file-wrap').remove();
+					}, 1000);*/
+
+				} else {
+					console.log("Oof");
+				}
+			},
+
+			error: function(errMsg){
+				console.log('Request was FAILED!');
+				console.log( errMsg );
+			}
+		});
+	});
+
+	$('#saveData').on('click', function(event) {
+		$('#editForm').submit();
+	});
 });
-
-
-
-
-

@@ -2,10 +2,10 @@
 	<div class="container user-content pt-80">
 		<div class="row">
 			<div class="col-10 offset-1">
+				<div class="title-1 post-add__title">Редактировать пост</div>
 				<?php if (isset($_GET['result'])) {
 					include ROOT . 'templates/blog/_results.tpl';
 				} ?>
-				<div class="title-1 post-add__title">Редактировать пост</div>
 				<?php require ROOT . 'templates/_parts/_errors.tpl';?>
 				<form id="editForm" class="post-add-form" action="<?=HOST?>blog/post-edit?id=<?=$post['id']?>" method="POST" enctype="multipart/form-data">
 					<div class="post-add-form__name">
@@ -33,6 +33,7 @@
 								<div class="load-file-wrap-img">
 									<img class="load-file-wrap-img__image" src="<?=HOST?>usercontent/blog/<?=$post['post_img_small']?>" alt="<?=$post['title']?>" />
 									<div class="load-file-wrap__button">
+										<input type="hidden" name="postId" id="postId" value="<?=$post['id']?>">
 										<input id="pictureDel" class="button button-delete button-small" type="submit" value="Удалить" name="picDelete"/>
 									</div>
 								</div>
