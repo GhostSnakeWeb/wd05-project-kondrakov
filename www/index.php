@@ -145,7 +145,7 @@ switch ($uri[0]) {
 		break;
 
 	// ::::::::::: PHOTO DIM :::::::::::::::::::::::
-	case 'blog/post-photo-dim':
+	case 'blog/picture-dimantions':
 		include ROOT . 'modules/blog/picture-dimantions.php';
 		break;
 

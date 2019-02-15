@@ -7,7 +7,7 @@
 				} ?>
 				<div class="title-1 post-add__title">Редактировать пост</div>
 				<?php require ROOT . 'templates/_parts/_errors.tpl';?>
-				<form class="post-add-form" action="<?=HOST?>blog/post-edit?id=<?=$post['id']?>" method="POST" enctype="multipart/form-data">
+				<form id="editForm" class="post-add-form" action="<?=HOST?>blog/post-edit?id=<?=$post['id']?>" method="POST" enctype="multipart/form-data">
 					<div class="post-add-form__name">
 						<label class="label">Название<input class="input-text" type="text" placeholder="Введите название" name="postTitle" value="<?=$post['title']?>" />
 						</label>
@@ -38,6 +38,7 @@
 								<div class="load-file-wrap-img">
 									<img class="load-file-wrap-img__image" src="<?=HOST?>usercontent/blog/<?=$post['post_img_small']?>" alt="<?=$post['title']?>" />
 									<div class="load-file-wrap__button">
+										<input type="hidden" value="<?=$post['id']?>">
 										<input class="button button-delete button-small" type="submit" value="Удалить" name="picDelete"/>
 									</div>
 								</div>
