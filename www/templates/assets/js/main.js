@@ -356,9 +356,9 @@ $(document).ready(function() {
 		$(this).slideUp(400);
 	});	
 
+	$('input[name=postImg]').change(function(event) {
+		var input = $(this)[0];
+		console.log(input);
+	});
+
 });
-
-
-
-
-
