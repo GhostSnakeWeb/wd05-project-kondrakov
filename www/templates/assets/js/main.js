@@ -362,10 +362,12 @@ $(document).ready(function() {
 	});
 
 	//ajax request to preview
-	$('input[name=postImg]').on('click', function(event) {
+	$('input[name=postImg]').on('change', function(event) {
 
 		// Находим форму на странице
 		var editForm = $('#editForm');
+
+		console.log($('input[name=postImg]')[0].files[0].name);
 		
 		// Находим инпут с id
 		var input = $('input[type=hidden]');
@@ -375,7 +377,7 @@ $(document).ready(function() {
 
 		// Формируем ссылку куда будет отправляться запрос
 		var URL = editForm.attr('action');
-		URL = URL.replace('post-edit', 'picture-dimantions');
+		URL = URL.replace('post-edit', 'get-post-info');
 
 		// Находим откуда (с какой позиции) начинается URL запрос
 		var posOfStartGet = URL.indexOf('?');
@@ -385,6 +387,7 @@ $(document).ready(function() {
 
 		// Формируем корректный URL без GET запроса
 		var correctURL = URL.replace(str, '');
+		console.log(correctURL);
 
 		$.ajax({
 			type: 'POST',
@@ -393,29 +396,37 @@ $(document).ready(function() {
 			success: function(message){
 				console.log('Request was succesful!');
 				console.log(message);
-				/*if (message == 'true') {
-					// Создаем блок с нотификацией
-					var notificationSuccess = 
-					$('<div class="notification__error mb-20 mt-20">'
-						 					+ 'Картинка успешно удалена'	+ '</div>');
-					// Вставляем нотификацию после заголовка
-					notificationSuccess.insertAfter('div.title-1').hide().slideDown(400);
-					setTimeout(function(){ 
-						notificationSuccess.slideUp(400);
-					}, 2400);
+				var post = JSON.parse(message);
+				var input = $('input[name=postImg]')[0];
+				// Идёт проверка поддержки API для работы с файлами и наличие файловых данных
+				if (input.files && input.files[0]) {
+					// Проверяем соответствуют ли данные картинке
+					if ( input.files[0].type.match('image.*')) {
+						// Далее используем FileReader() для чтения данных из файла и сохранения 
+						// их в JavaScript переменную
+						var reader = new FileReader();
+						// Когда данные будут загружены (событие onload), 
+						// мы присвоим их атрибуту src элемента предпросмотра
+						reader.onload = function(e) { 
+							$('#image_preview').attr('src', e.target.result); 
+						}
+						reader.readAsDataURL(input.files[0]); 
+						$('<a id="delPreview" class="button button-delete mt-10">' + 'Удалить превью' + '</a>').insertAfter('#image_preview');
+					} else console.log('is not image mime type');
+				} else console.log('not isset files data or files API not supordet');
 
-					// Просто удаление
-					$('div.load-file-wrap').remove();
-
-					// Удаление с анимацией
-					/*$('div.load-file-wrap').slideUp(600);
-					setTimeout(function(){ 
-						$('div.load-file-wrap').remove();
-					}, 1000);*/
-
-				/*} else {
-					console.log("Oof");
-				}*/
+				$('body').on('click', '#delPreview', function(event) {
+					$('#delPreview').remove();
+					if (post.post_img != '') {
+						input.files[0].name = post.post_img;
+						console.log(input.files[0].name);
+					} else {
+						$('#image_preview').attr('src', '');
+						input.files[0].name = '';
+						console.log(input.files[0].name);
+					}
+				  	$('span.file__inner-caption').text("Файл не выбран");
+				});
 			},
 
 			error: function(errMsg){
