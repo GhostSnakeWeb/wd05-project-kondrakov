@@ -144,6 +144,11 @@ switch ($uri[0]) {
 		include ROOT . 'modules/blog/post.php';
 		break;
 
+	// ::::::::::: PHOTO DIM :::::::::::::::::::::::
+	case 'blog/post-photo-dim':
+		include ROOT . 'modules/blog/picture-dimantions.php';
+		break;
+
 	default:
 		echo "404 and Main page";
 		break;
