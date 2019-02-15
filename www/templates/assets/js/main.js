@@ -355,6 +355,7 @@ $(document).ready(function() {
 	$('[data-notify-hide]').dblclick(function(event) {
 		$(this).slideUp(400);
 	});	
+
 });
 
 
