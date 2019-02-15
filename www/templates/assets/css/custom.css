@@ -109,3 +109,7 @@ body {
 .message-date {
 	width: calc(100% - 130px);
 }
+
+.textarea {
+	margin-top: 8px;
+}
