@@ -6,14 +6,23 @@
 				<?php require ROOT . 'templates/_parts/_errors.tpl';?>
 				<form class="post-add-form" action="<?=HOST?>blog/post-new" method="POST" enctype="multipart/form-data">
 					<div class="post-add-form__name">
-						<label class="label">Название<input class="input-text" type="text" placeholder="Введите название" name="postTitle" />
+						<label class="label">Название
+							<input 
+								class="input-text" 
+								type="text" 
+								placeholder="Введите название" 
+								name="postTitle"
+								value="<?php if (!empty($errors)) { ?><?=@$_POST['postTitle']?><?php } ?>" />
 						</label>
 					</div>
 					<div class="mt-30">
 						<label class="label">Категория</label>
 						<select name="postCat" class="mt-10">
 							<?php foreach ($cats as $cat): ?>
-								<option value="<?=$cat['id']?>"><?=$cat['cat_title']?></option>
+								<option 
+									value="<?=$cat['id']?>" <?echo (@$_POST['postCat'] == $cat['id'])?"selected":"";?>>
+										<?=$cat['cat_title']?>	
+								</option>	
 							<?php endforeach ?>
 						</select>
 					</div>
@@ -22,7 +31,7 @@
 						<div class="load-file-opis">Изображение jpg или png, рекомендуемая ширина 945px и больше, высота от 400px и более, вес до 2Мб.</div>
 						<div class="load-file-fieldset"><input class="inputfile" id="file-2" type="file" name="postImg" data-multiple-caption="{count} файлов выбрано" multiple="" /><label for="file-2">Выбрать файл</label><span class="file__inner-caption">Файл не выбран</span></div>
 					</div>
-					<div class="post-add-form__textarea"><label class="label"><p>Содержание</p><textarea class="textarea" id="ckEditor" type="text" placeholder="Введите описание" name="postText"></textarea>
+					<div class="post-add-form__textarea"><label class="label"><p>Содержание</p><textarea class="textarea" id="ckEditor" type="text" placeholder="Введите описание" name="postText"><?php if (!empty($errors)) { ?><?=@$_POST['postText']?><?php } ?></textarea>
 					<?php 
 						//Подключаем текстовый редактор через шаблон
 						include_once ROOT . "templates/_parts/_ckEditorConnect.tpl";
