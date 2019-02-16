@@ -33,6 +33,7 @@
 							<?php } ?>
 						</tbody>
 					</table>
+					<a href="<?=HOST?>order-create" class="button button-save">Оформить заказ</a>
 				<?php } else { ?>
 					<div class="highlight">
 						<div class="title-2">Корзина пуста</div>
