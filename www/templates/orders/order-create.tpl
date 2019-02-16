@@ -84,7 +84,7 @@
 						<input class="input-text" type="text" placeholder="Введите адрес доставки" name="address" />
 					</label>
 					<div class="post-add-form-button">
-						<input class="button button-save" type="submit" value="Сохранить" name="createOrder" />
+						<input class="button button-save" type="submit" value="Оформить заказ" name="createOrder" />
 					</div>
 				</form>
 			</div>

@@ -181,6 +181,18 @@ switch ($uri[0]) {
 		include ROOT . 'modules/orders/order-create.php';
 		break;
 
+	case 'order-created-success':
+		include ROOT . 'modules/orders/order-created-success.php';
+		break;
+
+	case 'orders':
+		include ROOT . 'modules/orders/orders.php';
+		break;
+
+	case 'order':
+		include ROOT . 'modules/orders/order.php';
+		break;
+
 	default:
 		echo "404";
 		break;
