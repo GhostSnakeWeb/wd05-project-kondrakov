@@ -1,3 +1,4 @@
+<?php # СТРАНИЧКА ВСЕХ ЗАКАЗОВ В СИСТЕМЕ ДЛЯ АДМИНА ?>
 <div class="sticky-footer-content">
 	<div class="container user-content pt-80">
 		<div class="row">

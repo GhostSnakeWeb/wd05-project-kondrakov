@@ -1,7 +1,7 @@
-<?php # ТАБЛИЦА ЗАКАЗОВ В СИСТЕМЕ ДЛЯ АДМИНА ?>
+<?php # ТАБЛИЦА ЗАКАЗОВ ПОЛЬЗОВАТЕЛЯ ?>
 <tr>
 	<td scope="row">
-		<a href="<?=HOST?>order?id=<?=$order->id?>">
+		<a href="<?=HOST?>myorder?id=<?=$order->id?>">
 			Заказ №
 			<?=$order->id?>
 		</a>

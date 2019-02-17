@@ -1,4 +1,4 @@
-<?php # СТРАНИЧКА ОТДЕЛЬНОГО ЗАКАЗА ДЛЯ АДМИНА ?>
+<?php # СТРАНИЧКА ОТДЕЛЬНОГО ЗАКАЗА ДЛЯ ПОЛЬЗОВАТЕЛЯ ?>
 <div class="sticky-footer-content">
 	<div class="container user-content pt-80">
 		<div class="row">
@@ -33,7 +33,7 @@
 						<?php } ?>
 					</tbody>
 				</table>
-				<a href="<?=HOST?>orders" class="button">← Назад к заказам</a>
+				<a href="<?=HOST?>myorders" class="button">← Назад к моим заказам</a>
 			</div>
 		</div>
 	</div>
