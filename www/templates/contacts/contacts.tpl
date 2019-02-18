@@ -1,6 +1,12 @@
 <div class="sticky-footer-content">
 	<div class="container user-content pt-80 pb-80">
 		<div class="row">
+			<?php 
+				//Если пришел массив GET с result
+				if (isset($_GET['result'])) {
+					include ROOT . 'templates/contacts/_results.tpl';
+				}
+			?>
 			<div class="col contacts-links">
 				<?php if (isAdmin()) { ?> 
 					<div class="contacts-links__button"><a class="button button-edit" href="<?=HOST?>contacts-edit">Редактировать</a></div>
@@ -63,23 +69,39 @@
 				<?php showContactItem('address', 'Адрес') ?>
 			</div>
 			<div class="col-md-4">
-				<form class="form-contact">
+				<?php require ROOT . 'templates/_parts/_errors.tpl';?>
+				<?php require ROOT . 'templates/_parts/_success.tpl';?>
+				<form class="form-contact" method="POST" action="<?=HOST?>contacts" enctype="multipart/form-data">
 					<div class="form-contact__title">Связаться со мной</div>
-					<?php 
-						//Если пришел массив GET с result
-						if (isset($_GET['result'])) {
-							include ROOT . 'templates/categories/_results.tpl';
-						}
-					?>
-					<div class="form-contact__name"><input class="input-text" type="text" placeholder="Введите имя" /></div>
-					<div class="form-contact__email"><input class="input-text" type="text" placeholder="Email" /></div>
-					<div class="form-contact__message"><textarea class="textarea mt-10" type="text" placeholder="Сообщение"></textarea></div>
+					<div class="form-contact__name">
+						<input 
+							class="input-text" 
+							name="name" 
+							<?php if (!empty($errors)) { ?>
+								value="<?=@$_POST['name']?>"
+							<?php } ?> 
+							type="text" 
+							placeholder="Введите имя" />
+					</div>
+					<div class="form-contact__email">
+						<input 
+							class="input-text" 
+							<?php if (!empty($errors)) { ?>
+								value="<?=@$_POST['email']?>"
+							<?php } ?>
+							type="text" 
+							placeholder="Email" 
+							name="email" />
+					</div>
+					<div class="form-contact__message">
+						<textarea name="message" class="textarea mt-10" type="text" placeholder="Сообщение"><?php if (!empty($errors)) { ?><?=@$_POST['message']?><?php } ?></textarea>
+					</div>
 					<div class="form-contact__load-file">
 						<div class="load-file-title">Прикрепить файл </div>
 						<div class="load-file-opis">jpg, png, pdf, doc, весом до 2Мб.</div>
-						<div class="load-file-fieldset"><input class="inputfile inputfile-rad" id="file" type="file" name="file" data-multiple-caption="{count} файлов выбрано" multiple="" /><label for="file">Выбрать файл</label><span>Файл не выбран</span></div>
+						<div class="load-file-fieldset"><input class="inputfile inputfile-rad" id="file" type="file" name="file" data-multiple-caption="{count} файлов выбрано" multiple="" /><label for="file">Выбрать файл</label><span class="file__inner-caption">Файл не выбран</span></div>
 					</div>
-					<div class="form-contact__save"><input class="button button-save" type="submit" value="Отправить" name="name" /></div>
+					<div class="form-contact__save"><input class="button button-save" type="submit" value="Отправить" name="newMessage" /></div>
 				</form>
 			</div>
 		</div>

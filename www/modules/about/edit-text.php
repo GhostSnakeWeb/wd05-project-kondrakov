@@ -20,6 +20,38 @@ if (isset($_POST['textUpdate'])) {
 		$errors[] = ['title' => 'Введите описание'];
 	}
 
+	//Проверяем имя файла и временное местонахождение файла
+	if(isset($_FILES['photo']['name']) && $_FILES['photo']['tmp_name'] != "") {
+
+		//Записываем параметры картинки в переменные
+		$fileName = $_FILES['photo']['name'];
+		$fileTempLoc = $_FILES['photo']['tmp_name'];
+		$fileType = $_FILES['photo']['type'];
+		$fileSize = $_FILES['photo']['size'];
+		$fileErrorMsg = $_FILES['photo']['error'];
+		$kaboom = explode(".", $fileName);
+		$fileExt = end($kaboom);
+
+		//Проверяем файл на разные свойства
+		list($width, $height) = getimagesize($fileTempLoc);
+
+		if ($width < 10 || $height < 10) {
+			$errors[] = ['title' => 'Изображение не имеет размеров'];		
+		}
+
+		if ($fileSize > 2097152) {
+			$errors[] = ['title' => 'Размер изображения не должен быть более 2 Мб'];
+		}
+
+		if (preg_match("/\.(jpg|jpeg|png)$/i", $fileName) == 0) {
+			$errors[] = ['title' => 'Неверный формат файла', 'desc' => '<p>Файл изображения должен быть в формате jpg, jpeg или png.</p>'];
+		}
+
+		if ($fileErrorMsg == 1) {
+			$errors[] = ['title' => 'При загрузке изображения произошла ошибка. Повторите попытку'];
+		}
+	}
+
 	if (empty($errors)) {
 
 		$about->name = htmlentities($_POST['name']);
@@ -28,34 +60,6 @@ if (isset($_POST['textUpdate'])) {
 
 		//Проверяем имя файла и временное местонахождение файла
 		if(isset($_FILES['photo']['name']) && $_FILES['photo']['tmp_name'] != "") {
-
-			//Записываем параметры картинки в переменные
-			$fileName = $_FILES['photo']['name'];
-			$fileTempLoc = $_FILES['photo']['tmp_name'];
-			$fileType = $_FILES['photo']['type'];
-			$fileSize = $_FILES['photo']['size'];
-			$fileErrorMsg = $_FILES['photo']['error'];
-			$kaboom = explode(".", $fileName);
-			$fileExt = end($kaboom);
-
-			//Проверяем файл на разные свойства
-			list($width, $height) = getimagesize($fileTempLoc);
-
-			if ($width < 10 || $height < 10) {
-				$errors[] = ['title' => 'Изображение не имеет размеров. Загрузите изображение побольше.'];		
-			}
-
-			if ($fileSize > 2097152) {
-				$errors[] = ['title' => 'Размер изображения не должен быть более 2 Мб'];
-			}
-
-			if (preg_match("/\.(jpg|jpeg|png)$/i", $fileName)) {
-				$errors[] = ['title' => 'Неверный формат файла', 'desc' => '<p>Файл изображения должен быть в формате jpg, jpeg или png.</p>'];
-			}
-
-			if ($fileErrorMsg == 1) {
-				$errors[] = ['title' => 'При загрузке изображения произошла ошибка. Повторите попытку'];
-			}
 
 			//Перемещаем загруженный файл в нужную дерикторию
 
@@ -86,8 +90,6 @@ if (isset($_POST['textUpdate'])) {
 			//Записываем в БД большую картинку поста
 			$about->photo = $db_file_name;
 		}
-
-
 
 		R::store($about);
 		header('Location: ' . HOST . 'about');

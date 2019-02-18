@@ -127,28 +127,36 @@ function mbCutString($string, $length, $postfix = "...", $encoding = 'UTF-8'){
 	return $result;
 }
 
-function pagination($results_per_page, $type){
+// ПАГИНАЦИЯ
+
+function pagination($results_per_page, $type) {
+	// Количество записей в таблице
 	$number_of_results = R::count($type);
+
+	// Количество отображаемых записей за раз
+	// $results_per_page = 3;
+
+	// Определяем количество страниц для отображения записей
+	# ceil -- Округляет дробь в большую сторону
 	$number_of_pages = ceil($number_of_results / $results_per_page);
 
-	if ( !isset($_GET['page'])) {
+	// Определяем на какой странице сейчас находится пользователь
+	if (!isset($_GET['page'])) {
 		$page_number = 1;
 	} else {
 		$page_number = $_GET['page'];
 	}
-
+	// Определяем sql Limit начальное число для отображения результатов на каждой странице
 	$starting_limit_number = ($page_number - 1) * $results_per_page;
+
+	// Формируем строку лимита
 	$sql_pages_limit = 'LIMIT ' . $starting_limit_number . ',' . $results_per_page;
 
-	$result['number_of_pages'] = $number_of_pages; // 3
-	$result['page_number'] = $page_number; // 2
-	$result['sql_pages_limit'] = $sql_pages_limit; // LIMIT 3,3
-	return $result;
-}
+	$result['number_of_pages'] = $number_of_pages;
+	$result['page_number'] = $page_number;
+	$result['sql_pages_limit'] = $sql_pages_limit;
 
-//Делит большое число по разрядам
-function price_format($price){
-	return number_format($price, 0, '', ' ');
+	return $result;
 }
 
 ?>

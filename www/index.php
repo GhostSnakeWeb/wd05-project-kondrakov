@@ -100,6 +100,10 @@ switch ($uri[0]) {
 		include ROOT . 'modules/contacts/messages.php';
 		break;
 
+	case 'delete-message':
+		include ROOT . 'modules/contacts/delete-message.php';
+		break;
+
 	// ::::::::::: CATEGORIES :::::::::::::::::
 
 	case 'blog/categories':
@@ -199,6 +203,16 @@ switch ($uri[0]) {
 
 	case 'myorder':
 		include ROOT . 'modules/orders/myorder.php';
+		break;
+
+	// ::::::::::: PAYMENT SYSTEMS :::::::::::::::::::::::
+
+	case 'payment-choice':
+		include ROOT . 'modules/payments/payment-choice.php';
+		break;
+
+	case 'payment-yandex':
+		include ROOT . 'modules/payments/yandex-payment.php';
 		break;
 
 	default:

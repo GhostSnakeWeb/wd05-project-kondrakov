@@ -2,6 +2,7 @@
 	<div class="container user-content pt-80">
 		<div class="row">
 			<div class="col-10 offset-1">
+				<?php require ROOT . 'templates/_parts/_errors.tpl';?>
 				<div class="title-2 mb-50">
 					<span>Состав заказа</span>
 				</div>

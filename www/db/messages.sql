@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 12 2019 г., 14:56
+-- Время создания: Фев 15 2019 г., 10:20
 -- Версия сервера: 5.5.61
 -- Версия PHP: 5.5.38
 
@@ -45,7 +45,8 @@ CREATE TABLE `messages` (
 INSERT INTO `messages` (`id`, `email`, `name`, `message`, `message_file_name_original`, `message_file`, `date_time`) VALUES
 (7, 'loki@mail.ru', 'Виталий', 'Без файла (', NULL, NULL, '2019-02-09 15:12:40'),
 (9, 'info@mail.ru', 'Антон', 'Без файла сообщение!', NULL, NULL, '2019-02-12 11:38:25'),
-(10, 'fl@mail', 'Антон', 'Привет, мир! К сожалению, нет файла!', NULL, NULL, '2019-02-12 11:41:10');
+(10, 'fl@mail', 'Антон', 'Привет, мир! К сожалению, нет файла!', NULL, NULL, '2019-02-12 11:41:10'),
+(11, 'info@mail.ru', 'Антон', 'Привет!', 'center3.png', '832969507.png', '2019-02-15 09:42:08');
 
 --
 -- Индексы сохранённых таблиц
@@ -65,7 +66,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT для таблицы `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
