@@ -8,5 +8,6 @@
 				include ROOT . 'templates/_parts/_blog-card.tpl';
 			} ?>
 		</div>
+		<?php include ROOT . 'templates/_parts/_pagination.tpl'; ?>
 	</div>
 </div>
