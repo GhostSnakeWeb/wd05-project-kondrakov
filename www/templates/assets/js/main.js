@@ -356,8 +356,3 @@ $(document).ready(function() {
 		$(this).slideUp(400);
 	});	
 });
-
-
-
-
-

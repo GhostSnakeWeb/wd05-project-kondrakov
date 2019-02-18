@@ -100,6 +100,10 @@ switch ($uri[0]) {
 		include ROOT . 'modules/contacts/messages.php';
 		break;
 
+	case 'delete-message':
+		include ROOT . 'modules/contacts/delete-message.php';
+		break;
+
 	// ::::::::::: CATEGORIES :::::::::::::::::
 
 	case 'blog/categories':
@@ -140,8 +144,79 @@ switch ($uri[0]) {
 		include ROOT . 'modules/blog/post.php';
 		break;
 
+	// ::::::::::: ESHOP :::::::::::::::::::::::
+
+	case 'shop':
+		include ROOT . 'modules/shop/index.php';
+		break;
+
+	case 'shop/new':
+		include ROOT . 'modules/shop/item-new.php';
+		break;
+
+	case 'shop/item':
+		include ROOT . 'modules/shop/item.php';
+		break;
+
+	case 'shop/item-edit':
+		include ROOT . 'modules/shop/item-edit.php';
+		break;
+
+	case 'shop/item-delete':
+		include ROOT . 'modules/shop/item-delete.php';
+		break;
+
+	// ::::::::::: CART :::::::::::::::::::::::
+
+	case 'addtocart':
+		include ROOT . 'modules/cart/addtocart.php';
+		break;
+
+	case 'cart':
+		include ROOT . 'modules/cart/cart.php';
+		break;
+
+	case 'removefromcart':
+		include ROOT . 'modules/cart/removefromcart.php';
+		break;
+
+	// ::::::::::: ORDERS :::::::::::::::::::::::
+	case 'order-create':
+		include ROOT . 'modules/orders/order-create.php';
+		break;
+
+	case 'order-created-success':
+		include ROOT . 'modules/orders/order-created-success.php';
+		break;
+
+	case 'orders':
+		include ROOT . 'modules/orders/orders.php';
+		break;
+
+	case 'order':
+		include ROOT . 'modules/orders/order.php';
+		break;
+
+	case 'myorders':
+		include ROOT . 'modules/orders/myorders.php';
+		break;
+
+	case 'myorder':
+		include ROOT . 'modules/orders/myorder.php';
+		break;
+
+	// ::::::::::: PAYMENT SYSTEMS :::::::::::::::::::::::
+
+	case 'payment-choice':
+		include ROOT . 'modules/payments/payment-choice.php';
+		break;
+
+	case 'payment-yandex':
+		include ROOT . 'modules/payments/yandex-payment.php';
+		break;
+
 	default:
-		echo "404 and Main page";
+		echo "404";
 		break;
 }
 

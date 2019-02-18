@@ -2,6 +2,8 @@
 
 $title = "Сообщения";
 
+$messages = R::find('messages', 'ORDER BY id DESC');
+
 //Готовим контент для центральной части
 //ob_start() - буферизированный вывод.
 ob_start();
