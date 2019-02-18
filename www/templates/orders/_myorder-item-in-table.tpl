@@ -14,7 +14,9 @@
 	</td>
 	<?php if ( $order->payment == 'yes'){ ?>
 	<td class="text-success">Оплачен</td>
+	<td></td>
 	<?php } else { ?>
 	<td class="text-danger">Не оплачен</td>
+	<td><a class="button button-profile" href="<?=HOST?>payment-choice?id=<?=$order->id?>">Оплатить</a></td>
 	<?php } ?>
 </tr>

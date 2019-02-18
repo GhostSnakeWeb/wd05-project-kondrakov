@@ -5,7 +5,7 @@
 				<div class="title-2 mb-50">
 					<span>Заказ успешно оформлен</span>
 				</div>
-				<a href="<?=HOST?>order-payment" class="button button-save">Перейти к оплате</a>
+				<a href="<?=HOST?>payment-choice" class="button button-save">Перейти к оплате</a>
 			</div>
 		</div>
 	</div>
