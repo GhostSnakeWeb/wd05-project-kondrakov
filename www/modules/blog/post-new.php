@@ -21,6 +21,38 @@ if (isset($_POST['postNew'])) {
 		$errors[] = ['title' => 'Введите текст поста'];
 	}
 
+	//Проверяем имя файла и временное местонахождение файла
+	if(isset($_FILES['postImg']['name']) && $_FILES['postImg']['tmp_name'] != "") {
+
+		//Записываем параметры картинки в переменные
+		$fileName = $_FILES['postImg']['name'];
+		$fileTempLoc = $_FILES['postImg']['tmp_name'];
+		$fileType = $_FILES['postImg']['type'];
+		$fileSize = $_FILES['postImg']['size'];
+		$fileErrorMsg = $_FILES['postImg']['error'];
+		$kaboom = explode(".", $fileName);
+		$fileExt = end($kaboom);
+
+		//Проверяем файл на разные свойства
+		list($width, $height) = getimagesize($fileTempLoc);
+
+		if ($width < 10 || $height < 10) {
+			$errors[] = ['title' => 'Изображение не имеет размеров'];		
+		}
+
+		if ($fileSize > 2097152) {
+			$errors[] = ['title' => 'Размер изображения не должен быть более 2 Мб'];
+		}
+
+		if (preg_match("/\.(gif|jpg|jpeg|png)$/i", $fileName) == 0) {
+			$errors[] = ['title' => 'Неверный формат файла', 'desc' => '<p>Файл изображения должен быть в формате gif, jpg, jpeg или png.</p>'];
+		}
+
+		if ($fileErrorMsg == 1) {
+			$errors[] = ['title' => 'При загрузке изображения произошла ошибка. Повторите попытку'];
+		}
+	}
+
 	if (empty($errors)) {
 		//В таблице posts создаем новую запись
 		$post = R::dispense('posts');
@@ -35,34 +67,6 @@ if (isset($_POST['postNew'])) {
 
 		//Проверяем имя файла и временное местонахождение файла
 		if(isset($_FILES['postImg']['name']) && $_FILES['postImg']['tmp_name'] != "") {
-
-			//Записываем параметры картинки в переменные
-			$fileName = $_FILES['postImg']['name'];
-			$fileTempLoc = $_FILES['postImg']['tmp_name'];
-			$fileType = $_FILES['postImg']['type'];
-			$fileSize = $_FILES['postImg']['size'];
-			$fileErrorMsg = $_FILES['postImg']['error'];
-			$kaboom = explode(".", $fileName);
-			$fileExt = end($kaboom);
-
-			//Проверяем файл на разные свойства
-			list($width, $height) = getimagesize($fileTempLoc);
-
-			if ($width < 10 || $height < 10) {
-				$errors[] = ['title' => 'Изображение не имеет размеров. Загрузите изображение побольше.'];		
-			}
-
-			if ($fileSize > 4194304) {
-				$errors[] = ['title' => 'Размер изображения не должен быть более 4 Мб'];
-			}
-
-			if (preg_match("/\.(gif|jpg|jpeg|png)$/i", $fileName)) {
-				$errors[] = ['title' => 'Неверный формат файла', 'desc' => '<p>Файл изображения должен быть в формате gif, jpg, jpeg или png.</p>'];
-			}
-
-			if ($fileErrorMsg == 1) {
-				$errors[] = ['title' => 'При загрузке изображения произошла ошибка. Повторите попытку'];
-			}
 
 			//Перемещаем загруженный файл в нужную дерикторию
 
