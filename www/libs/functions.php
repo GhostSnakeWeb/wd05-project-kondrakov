@@ -127,4 +127,37 @@ function mbCutString($string, $length, $postfix = "...", $encoding = 'UTF-8'){
 	return $result;
 }
 
+// ПАГИНАЦИЯ
+
+function pagination($results_per_page, $type) {
+	// Количество записей в таблице
+	$number_of_results = R::count($type);
+
+	// Количество отображаемых записей за раз
+	// $results_per_page = 3;
+
+	// Определяем количество страниц для отображения записей
+	# ceil -- Округляет дробь в большую сторону
+	$number_of_pages = ceil($number_of_results / $results_per_page);
+
+	// Определяем на какой странице сейчас находится пользователь
+	if (!isset($_GET['page'])) {
+		$page_number = 1;
+	} else {
+		$page_number = $_GET['page'];
+	}
+
+	// Определяем sql Limit начальное число для отображения результатов на каждой странице
+	$starting_limit_number = ($page_number - 1) * $results_per_page;
+
+	// Формируем строку лимита
+	$sql_pages_limit = 'LIMIT ' . $starting_limit_number . ',' . $results_per_page;
+
+	$result['number_of_pages'] = $number_of_pages;
+	$result['page_number'] = $page_number;
+	$result['sql_pages_limit'] = $sql_pages_limit;
+
+	return $result;
+}
+
 ?>

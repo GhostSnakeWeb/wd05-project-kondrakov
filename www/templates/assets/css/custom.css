@@ -113,3 +113,45 @@ body {
 .textarea {
 	margin-top: 8px;
 }
+
+/* ПАГИНАЦИЯ */
+
+.pagination {
+	margin-top: 35px;
+	margin-bottom: 35px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: baseline;
+	-ms-flex-align: baseline;
+	align-items: baseline;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.pagination__item {
+	background: none repeat scroll 0 0 #eee;
+	color: #222;
+	height: 42px;
+	line-height: 1;
+	text-decoration: none;
+	padding: 13px 18px 6px;
+	border-radius: 6px;
+	margin: 0 10px;
+	-webkit-transition: all 0.2s ease-in;
+	-o-transition: all 0.2s ease-in;
+	transition: all 0.2s ease-in;
+}
+
+.pagination__item:hover {
+	background-color: #3866c5;
+	color: #FFF;
+}
+
+.pagination__item:active, .pagination__item--active {
+	background-color: #0060cf;
+	color: #FFF;
+}

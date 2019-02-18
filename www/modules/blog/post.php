@@ -29,6 +29,18 @@ $sqlComments = 'SELECT
 		WHERE comments.post_id = ' . $_GET['id'];
 $comments = R::getAll($sqlComments);
 
+// получаем данные колонки id из таблицы posts
+$postId = R::getCol('SELECT id FROM posts');
+
+foreach ($postId as $index => $id) {
+	// Если id в массиве совпадает с id поста
+	if ($id == $post['id']) {
+		@$nextId = $postId[$index + 1];
+		@$prevId = $postId[$index - 1];
+		break;
+	}
+}
+
 //Если пришел массив POST с addComment
 if (isset($_POST['addComment'])) {
 	if (trim($_POST['commentText']) == '') {
