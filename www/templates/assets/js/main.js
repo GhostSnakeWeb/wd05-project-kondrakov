@@ -355,10 +355,4 @@ $(document).ready(function() {
 	$('[data-notify-hide]').dblclick(function(event) {
 		$(this).slideUp(400);
 	});	
-
-	$('input[name=postImg]').change(function(event) {
-		var input = $(this)[0];
-		console.log(input);
-	});
-
 });

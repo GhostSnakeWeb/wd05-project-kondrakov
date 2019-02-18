@@ -146,7 +146,6 @@ function pagination($results_per_page, $type) {
 	} else {
 		$page_number = $_GET['page'];
 	}
-
 	// Определяем sql Limit начальное число для отображения результатов на каждой странице
 	$starting_limit_number = ($page_number - 1) * $results_per_page;
 

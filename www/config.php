@@ -10,6 +10,7 @@ define('DB_PASS', '');
 define('SITE_NAME', 'Личный сайт Владислава Кондракова');
 define('SITE_EMAIL', 'info@mysite.ru');
 define('ADMIN_EMAIL', 'vladan982004@gmail.com');
+define('YANDEX_WALLET', '410016061819649');
 
 //Устанавливаем путь до корневой директории скрипта по протоколу HTTP
 //define('HOST', "http://$_SERVER['HTTP_HOST']/");

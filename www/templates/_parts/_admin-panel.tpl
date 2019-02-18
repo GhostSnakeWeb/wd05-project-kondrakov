@@ -18,6 +18,7 @@
 		<a class="admin-panel-menu__link" href="<?=HOST?>about"><i class="fas fa-edit admin-panel-menu__icon"></i>Обо мне</a>
 		<a class="admin-panel-menu__link" href="<?=HOST?>contacts"><i class="fas fa-edit admin-panel-menu__icon"></i>Контакты</a>
 		<a class="admin-panel-menu__link" href="<?=HOST?>messages"><i class="fas fa-envelope admin-panel-menu__icon"></i>Сообщения</a>
+		<a class="admin-panel-menu__link" href="<?=HOST?>orders"><i class="fas fa-shopping-cart admin-panel-menu__icon"></i>Заказы</a>
 	</nav>
 	<div class="admin-panel-sign-out"><a class="admin-panel-sign-out__link" href="<?=HOST?>logout"><i class="fas fa-sign-out-alt admin-panel-menu__icon"></i>Выход</a></div>
 </div>
