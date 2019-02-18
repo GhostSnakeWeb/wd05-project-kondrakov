@@ -130,8 +130,59 @@ body {
 	max-width: 100%;
 	height: auto;
 	width: auto;
+  
+.message-author {
+	align-items: center;
+}
+
+.message-date {
+	width: calc(100% - 130px);
+}
+
+.textarea {
+	margin-top: 8px;
+}
+
+/* ПАГИНАЦИЯ */
+
+.pagination {
+	margin-top: 35px;
+	margin-bottom: 35px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: baseline;
+	-ms-flex-align: baseline;
+	align-items: baseline;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.pagination__item {
+	background: none repeat scroll 0 0 #eee;
+	color: #222;
+	height: 42px;
+	line-height: 1;
+	text-decoration: none;
+	padding: 13px 18px 6px;
+	border-radius: 6px;
+	margin: 0 10px;
+	-webkit-transition: all 0.2s ease-in;
+	-o-transition: all 0.2s ease-in;
+	transition: all 0.2s ease-in;
+}
+
+.pagination__item:hover {
+	background-color: #3866c5;
+	color: #FFF;
+}
+
+.pagination__item:active, .pagination__item--active {
+	background-color: #0060cf;
+	color: #FFF;
 }
 
 .button-shop {
@@ -309,3 +360,138 @@ body {
 	left: 20%;
 	top: 108%;
 }
+
+.to-shop {
+	font-size: 16px;
+	font-weight: 700;
+}
+
+/* Cart */
+
+.cart {
+	background-color: green;
+	-webkit-border-radius: 20px 0 0 20px;
+	border-radius: 20px 0 0 20px;
+	display: inline-block;
+	position: absolute;
+	z-index: 5;
+	right: 0;
+	font-size: 14px;
+	padding: 10px 20px;
+	background-color: #FFF;
+}
+
+.cart a {
+	text-decoration: none;
+}
+
+/* Ссылки на вход и регистрацию в шапке */
+.sign-in-guest {
+    display: flex;
+    color: #fff;
+    align-items: end;
+}
+
+.highlight {
+	padding: 1rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	background-color: #f8f9fa;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.table-total,
+.table-total>th,
+.table-total>td {
+	background-color: #f8f9fa;
+}
+
+.cart-img-preview {
+	max-width: 80px;
+	min-height: auto;
+}
+
+.delete-from-cart {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	color: #037EC6;
+	opacity: 0.3;
+	transition: 0.2s ease-in;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.delete-from-cart:hover {
+	opacity: 1;
+}
+
+.text-success {
+	color: #28a745 !important;
+}
+
+.text-danger {
+	color: #dc3545 !important;
+}
+
+.registration-wrapper {
+	height: 105vh;
+}
+
+.control-row {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+/* RADIO */
+
+.radio {
+	display: block;
+}
+
+.radio__label {
+	cursor: pointer;
+}
+
+.radio__input {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.radio__input:checked+.radio__check-inner {
+	background: #1e6791;
+	border: 3px solid #ffffff;
+	-webkit-box-shadow: 0 0 0 3px #cae2f8;
+	box-shadow: 0 0 0 3px #cae2f8;
+}
+
+.radio__check-inner {
+	margin-right: 13px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+	margin-left: 3px;
+	vertical-align: top;
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	-webkit-box-shadow: 0 0 0 2px #ffffff, 0 0 0 3px #c3cdd3;
+	box-shadow: 0 0 0 2px #ffffff, 0 0 0 3px #c3cdd3;
+	background-color: #ffffff;
+	border: 1px solid #ffffff;
+	outline: none;
+	border-radius: 50%;
+	cursor: pointer;
+	-webkit-transition: border 0.2s ease-in, outline 0.2s ease-in;
+	-o-transition: border 0.2s ease-in, outline 0.2s ease-in;
+	transition: border 0.2s ease-in, outline 0.2s ease-in;
+}
+
+.radio__input:focus+.radio__check-inner,
+.radio__input.has-focus+.radio__check-inner {
+	-webkit-box-shadow: 0 0 0 3px #cae2f8, 0 0 0 5px #e2e9f0;
+	box-shadow: 0 0 0 3px #cae2f8, 0 0 0 5px #e2e9f0;
+ }

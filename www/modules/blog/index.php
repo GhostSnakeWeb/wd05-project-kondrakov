@@ -2,10 +2,12 @@
 
 $title = "Блог - все записи";
 
+$pagination = pagination(6, 'posts');
+
 //ПОЛУЧАЕМ ДАННЫЕ ИЗ БД
 
 //Делаем сортировку постов по id по убыванию. Т.е. последние посты будут наверху
-$posts = R::find('posts', 'ORDER BY id DESC');
+$posts = R::find('posts', 'ORDER BY id DESC ' . $pagination['sql_pages_limit']);
 
 //Готовим контент для центральной части
 //ob_start() - буферизированный вывод.

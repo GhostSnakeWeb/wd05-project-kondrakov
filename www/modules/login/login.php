@@ -25,6 +25,10 @@ if (isset($_POST['login'])) {
 				$_SESSION['logged_user'] = $user;
 				$_SESSION['login'] = "1";
 				$_SESSION['role'] = $user->role;
+
+				// Сравнение и обновление корзинывынесено в отдельный файл. 
+				require ROOT . 'modules/cart/_cart-update-in-login.php';
+
 				header('Location: ' . HOST);
 				exit();
 			} else {

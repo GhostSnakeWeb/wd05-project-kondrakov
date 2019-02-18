@@ -8,8 +8,8 @@ $sqlPost = '
 	    	users.name, users.surname,
 	    	categories.cat_title
     	FROM `posts`
-    	INNER JOIN categories ON posts.cat = categories.id
-    	INNER JOIN users ON posts.author_id = users.id
+    	LEFT JOIN categories ON posts.cat = categories.id
+    	LEFT JOIN users ON posts.author_id = users.id
     	WHERE posts.id = ' . $_GET['id'] . ' LIMIT 1';
 
 //getAll - создает массив с удовлетворяющими запросу записями из БД
@@ -28,6 +28,18 @@ $sqlComments = 'SELECT
 		INNER JOIN users ON comments.user_id = users.id
 		WHERE comments.post_id = ' . $_GET['id'];
 $comments = R::getAll($sqlComments);
+
+// получаем данные колонки id из таблицы posts
+$postId = R::getCol('SELECT id FROM posts');
+
+foreach ($postId as $index => $id) {
+	// Если id в массиве совпадает с id поста
+	if ($id == $post['id']) {
+		@$nextId = $postId[$index + 1];
+		@$prevId = $postId[$index - 1];
+		break;
+	}
+}
 
 //Если пришел массив POST с addComment
 if (isset($_POST['addComment'])) {
